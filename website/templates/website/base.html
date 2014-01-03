@@ -1,0 +1,20 @@
+<html>
+<div id="header">
+    {% block styles %}
+        {% load staticfiles %}
+            <link href="/uploadify/uploadify.css" type="text/css" rel="stylesheet" />
+    {% endblock %}
+</div>
+<div id="content">
+    {% block content %}
+        <p>Here is our content that will be overwritten</p>
+    {% endblock %}
+    <p>Other stuff that won't be overwritten.</p>
+</div>
+<div id="footer"></div>
+<div id="scripts">
+    {%  block scripts %}
+
+    {% endblock %}
+</div>
+</html>

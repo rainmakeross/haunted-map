@@ -1,0 +1,176 @@
+
+{% extends "website/base.html" %}
+{%  block content %}
+<body onload="mapInit()">
+<div id="mapp" class="smallmap"></div>
+<div id="myData"></div>
+<p>Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png"></p>
+</body>
+
+<style>
+
+</style>
+{% endblock %}
+
+{% block scripts %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+    <script src="http://www.openstreetmap.org/openlayers/OpenStreetMap.js"></script>
+    <script>
+
+
+
+
+        function mapInit(){
+            var lon = 0;
+            var lat = 0;
+            var zoom = 3;
+
+            map = new OpenLayers.Map("mapp", {
+                units : 'm'
+            });
+
+            layerMapnik = new OpenLayers.Layer.OSM.Mapnik("Mapnik");
+            arrayOSM = ["http://otile1.mqcdn.com/tiles/1.0.0/map/${z}/${x}/${y}.jpg",
+                "http://otile2.mqcdn.com/tiles/1.0.0/map/${z}/${x}/${y}.jpg",
+                "http://otile3.mqcdn.com/tiles/1.0.0/map/${z}/${x}/${y}.jpg",
+                "http://otile4.mqcdn.com/tiles/1.0.0/map/${z}/${x}/${y}.jpg"];
+            arrayAerial = ["http://otile1.mqcdn.com/tiles/1.0.0/sat/${z}/${x}/${y}.jpg",
+                "http://otile2.mqcdn.com/tiles/1.0.0/sat/${z}/${x}/${y}.jpg",
+                "http://otile3.mqcdn.com/tiles/1.0.0/sat/${z}/${x}/${y}.jpg",
+                "http://otile4.mqcdn.com/tiles/1.0.0/sat/${z}/${x}/${y}.jpg"];
+
+            baseOSM = new OpenLayers.Layer.OSM("MapQuest-OSM Tiles", arrayOSM);
+            baseAerial = new OpenLayers.Layer.OSM("MapQuest Open Aerial Tiles", arrayAerial);
+
+            map.addLayer(baseOSM);
+            map.addLayer(baseAerial);
+            layerMapnik.setOpacity(1);
+            map.addLayer(layerMapnik);
+
+            var switcherControl = new OpenLayers.Control.LayerSwitcher();
+            map.addControl(switcherControl);
+            switcherControl.maximizeControl();
+
+            if (!map.getCenter()) {
+                var lonLat = new OpenLayers.LonLat(lon, lat).transform(new OpenLayers.Projection("EPSG:4326"), map
+                        .getProjectionObject());
+                map.setCenter(lonLat, zoom);
+            }
+
+
+
+            {% if haunted_location_list %}
+                featuresArray = new Array();
+                {% for haunted_location in haunted_location_list %}
+
+                    var tempFeature = new OpenLayers.Feature.Vector(new OpenLayers.Geometry.Point({{ haunted_location.longitude }}, {{ haunted_location.latitude }}).transform(new OpenLayers.Projection("EPSG:4326"), map
+                            .getProjectionObject()),{category:'{{haunted_location.category}}', slug:'{{haunted_location.get_absolute_url}}', name:'{{ haunted_location.name }}'});
+
+                    featuresArray.push(tempFeature);
+                {% endfor %}
+            {% else %}
+            {% endif %}
+
+            // create the layer styleMap by giving the default style a context
+            var colors = ["red", "green", "blue"];
+            var context = {
+
+                getIcon: function(feature) {
+                    return feature.attributes["category"] === "Cemeteries" ? 'http://127.0.0.1:8000/static/website/icons/religious/cemetary.png':
+                            feature.attributes["category"] === "Bridges" ?  'http://127.0.0.1:8000/static/website/icons/monuments/bridge_old.png':
+                                    feature.attributes["category"] === "Ghost Lights" ?  'http://127.0.0.1:8000/static/website/icons/tourism/star_3.png':
+                                            feature.attributes["category"] === "Ghost Towns" ?  'http://127.0.0.1:8000/static/website/icons/tourism/historicalquarter.png':
+                                                    feature.attributes["category"] === "Gravity Hills" ?  'http://127.0.0.1:8000/static/website/icons/tourism/sight_2.png':
+                                                            feature.attributes["category"] === "Historical Buildings" ?  'http://127.0.0.1:8000/static/website/icons/tourism/bigcity.png':
+                                                                    feature.attributes["category"] === "Hotels and Inns" ?  'http://127.0.0.1:8000/static/website/icons/hotels/bed_breakfast1-2.png':
+                                                                            feature.attributes["category"] === "Lighthouses" ?  'http://127.0.0.1:8000/static/website/icons/tourism/lighthouse-2.png':
+                                                                                    feature.attributes["category"] === "Military" ?  'http://127.0.0.1:8000/static/website/icons/defensive/castle-2.png':
+                                                                                            feature.attributes["category"] === "Miscellaneous" ?  'http://127.0.0.1:8000/static/website/icons/ghost/ghost_of_hunger_past.png':
+                                                                                                    feature.attributes["category"] === "Houses Of Worship" ?  'http://127.0.0.1:8000/static/website/icons/religious/prayer.png':
+                                                                                                            feature.attributes["category"] === "Historical Sites" ?  'http://127.0.0.1:8000/static/website/icons/tourism/historicalquarter.png':
+                                                                                                                    'http://127.0.0.1:8000/static/website/icons/ghost/ghost_of_hunger_past.png';
+
+                }
+            };
+            var defaultTemplate = {
+                externalGraphic: "${getIcon}", // using context.getSize(feature)
+                'pointRadius': 15
+            };
+
+            var selectTemplate = {
+                externalGraphic: "${getIcon}", // using context.getSize(feature)
+                'pointRadius': 30
+            }
+
+            var defaultStyle = new OpenLayers.Style(defaultTemplate, {context: context});
+            var selectStyle = new OpenLayers.Style(selectTemplate, {context: context});
+            var pointsLayer = new OpenLayers.Layer.Vector("Points Layer",{
+                styleMap: new OpenLayers.StyleMap({default: defaultStyle, select:selectStyle}),
+                rendererOptions: {zIndexing: true},
+                eventListeners:{
+                    'featureselected':function(evt){
+                        var feature = evt.feature;
+                        var popup = new OpenLayers.Popup.FramedCloud("popup",
+                                OpenLayers.LonLat.fromString(feature.geometry.toShortString()),
+                                null,
+                                feature.attributes.category+"<br>"+feature.attributes.name,
+                                null,
+                                true,
+                                null
+                        );
+                        popup.autoSize = true;
+                        popup.maxSize = new OpenLayers.Size(400,800);
+                        popup.fixedRelativePosition = true;
+                        feature.popup = popup;
+                        map.addPopup(popup);
+                    },
+                    'featureunselected':function(evt){
+                        var feature = evt.feature;
+                        map.removePopup(feature.popup);
+                        feature.popup.destroy();
+                        feature.popup = null;
+                    },
+                    'featureclick':function(evt){
+                        var feature = evt.feature;
+                        map.removePopup(feature.popup);
+                        feature.popup.destroy();
+                        feature.popup = null;
+                        var popup_id = "big_popup";
+                        {% load staticfiles %}
+                        var html_content = "Category:"+feature.attributes.category+"<br>"+"Link:"+"<a href="+ feature.attributes.slug+"> "+feature.attributes.name+"</a>"+"<br>"+'<img src="{% static "website/icons/ghost/ghost.png" %}" alt="My image"/>';
+                        var popup = new OpenLayers.Popup.FramedCloud(popup_id,
+                                OpenLayers.LonLat.fromString(feature.geometry.toShortString()),
+                                null,
+                                html_content,
+                                null,
+                                true,
+                                null
+                        );
+                        popup.autoSize = true;
+                        popup.maxSize = new OpenLayers.Size(400,800);
+                        popup.fixedRelativePosition = true;
+                        map.addPopup(popup);
+                    }
+                }
+            });
+            pointsLayer.addFeatures(featuresArray);
+
+            map.addLayer(pointsLayer);
+
+            // Create a select feature control and add it to the map.
+            var select = new OpenLayers.Control.SelectFeature(pointsLayer, {hover: true});
+            map.addControl(select);
+            select.activate();
+
+
+
+
+        }
+
+    </script>
+
+{% endblock %}
+
+
+

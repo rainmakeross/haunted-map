@@ -1,0 +1,108 @@
+     //      $(document).ready(function() {
+        //          initMapp();
+        //      })
+
+        var lon = 0;
+        var lat = 0;
+        var zoom = 3    ;
+
+        var map; //complex object of type OpenLayers.Map
+
+        function initMapp() {
+
+            map = new OpenLayers.Map("mapp", {
+                units : 'm'
+            });
+
+            layerMapnik = new OpenLayers.Layer.OSM.Mapnik("Mapnik");
+            arrayOSM = ["http://otile1.mqcdn.com/tiles/1.0.0/map/${z}/${x}/${y}.jpg",
+                    "http://otile2.mqcdn.com/tiles/1.0.0/map/${z}/${x}/${y}.jpg",
+                    "http://otile3.mqcdn.com/tiles/1.0.0/map/${z}/${x}/${y}.jpg",
+                    "http://otile4.mqcdn.com/tiles/1.0.0/map/${z}/${x}/${y}.jpg"];
+            arrayAerial = ["http://otile1.mqcdn.com/tiles/1.0.0/sat/${z}/${x}/${y}.jpg",
+                        "http://otile2.mqcdn.com/tiles/1.0.0/sat/${z}/${x}/${y}.jpg",
+                        "http://otile3.mqcdn.com/tiles/1.0.0/sat/${z}/${x}/${y}.jpg",
+                        "http://otile4.mqcdn.com/tiles/1.0.0/sat/${z}/${x}/${y}.jpg"];
+
+            baseOSM = new OpenLayers.Layer.OSM("MapQuest-OSM Tiles", arrayOSM);
+            baseAerial = new OpenLayers.Layer.OSM("MapQuest Open Aerial Tiles", arrayAerial);
+
+            map.addLayer(baseOSM);
+            map.addLayer(baseAerial);
+            layerMapnik.setOpacity(1);
+            map.addLayer(layerMapnik);
+
+            {% if haunted_location_list %}
+                    initPointsLayer(map)
+                {% for haunted_location in haunted_location_list %}
+                    addPointToMap(map,{{haunted_location.longitude}},{{haunted_location.latitude}},'{{haunted_location.category}}');
+                {% endfor %}
+            {% else %}
+            {% endif %}
+
+
+            var switcherControl = new OpenLayers.Control.LayerSwitcher();
+            map.addControl(switcherControl);
+            switcherControl.maximizeControl();
+
+            if (!map.getCenter()) {
+                var lonLat = new OpenLayers.LonLat(lon, lat).transform(new OpenLayers.Projection("EPSG:4326"), map
+                        .getProjectionObject());
+                map.setCenter(lonLat, zoom);
+            }
+        }
+
+        function addPointToMap(pMap,lat,lon,category){
+            var coordinates = new Array();
+            function externalGraphics(category){
+                return null;
+
+            }
+
+            var graphicUrl = externalGraphics(category);
+
+
+
+
+            //var pointStyle = {externalGraphic: 'http://127.0.0.1:8000/static/website/icons/religious/cemetary.png', graphicHeight: 20, graphicWidth: 20}
+            //var pointStyle = {thumbnail:'http://127.0.0.1:8000/static/website/icons/religious/cemetary.png'};
+            // Make Point
+            coordinates.push(new OpenLayers.Geometry.Point(lat, lon).transform(new OpenLayers.Projection("EPSG:4326"), map
+                        .getProjectionObject()));
+            var pointsGeometry = new OpenLayers.Geometry.MultiPoint(coordinates);
+            var pointFeature =  new OpenLayers.Feature.Vector(pointsGeometry, null);
+            pointFeature.attributes['category']=category;
+
+
+            // Layer
+            var pointsLayerArray = pMap.getLayersByName("Points Layer");
+            var pointsLayer = pointsLayerArray[0];
+            pointsLayer.addFeatures([pointFeature]);
+
+        }
+
+        function initPointsLayer(pMap, features){
+            var context = {
+                getColor: function(feature) {
+                    var region = parseInt((feature.geometry.x + 180) / 120);
+                    return colors[region];
+                }
+            }
+            var template ={
+                'pointRadius' : 10,
+                'fillColor' : "${getColor}"
+            }
+            var style = new OpenLayers.Style({
+            'externalGraphic': 'http://127.0.0.1:8000/static/website/icons/religious/cemetary.png',
+            'graphicHeight': 25,
+            'graphicWidth': 21,
+            'graphicXOffset': -10.5,
+            'graphicYOffset': -12.5
+            });
+
+            var style2 = new OpenLayers.Style(template,{context:context});
+            var styleMap = new OpenLayers.StyleMap({'default':style2});
+            var pointsLayer = new OpenLayers.Layer.Vector("Points Layer", {styleMap:styleMap});
+
+            pMap.addLayer(pointsLayer);
+        }
