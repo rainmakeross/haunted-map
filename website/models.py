@@ -35,7 +35,7 @@ class  HauntedLocation(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('website.views.detail', (slugify(self.name), slugify(self.id)))
+        return ('HauntedLocationDetail', (slugify(self.name), slugify(self.id)))
 
     name = models.CharField(max_length=255)
     latitude = models.FloatField()

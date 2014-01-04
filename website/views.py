@@ -1,4 +1,7 @@
 from django.shortcuts import render, get_object_or_404
+from django.views.generic.base import View
+from django.views.generic import ListView, DetailView
+from django.views.generic import DetailView
 from django.http import HttpResponse, Http404
 from django.views.decorators.cache import cache_page
 from django.template import RequestContext, loader
@@ -6,29 +9,44 @@ from django.template import RequestContext, loader
 from models import HauntedLocation, HauntedLocationDescription
 
 #@cache_page(60 * 1)
-def index(request):
-    haunted_location_list = HauntedLocation.objects.all()
+class Index(View):
+    template_name = 'website/index.html';
+    def get(self,request):
+
+        haunted_location_list = HauntedLocation.objects.all()
 
 
+        context = {'haunted_location_list': haunted_location_list}
 
-    context = {'haunted_location_list': haunted_location_list}
+        return render(request, self.template_name, context)
 
-    return render(request, 'website/index.html', context)
+class HauntedLocationList(ListView):
+    model = HauntedLocation
 
 #@cache_page(60 * 1)
-def detail(request, slug, id):
-    print(id)
-    print(slug)
-    haunted_location = get_object_or_404(HauntedLocation, pk=id)
-    try:
-        haunted_location_description = get_object_or_404(HauntedLocationDescription, pk=id)
-    except Http404:
-        haunted_location_description =""
+class HauntedLocationDetail(DetailView):
+    model = HauntedLocation
+    context_object_name = 'haunted_location'
 
-    print(type(haunted_location_description))
+    def get_object(self, queryset=None):
+        obj = super(HauntedLocationDetail, self).get_object(queryset)
+        try:
+            self.description = get_object_or_404(HauntedLocationDescription, haunted_location = obj.id)
+        except Http404:
+            self.description = "Not Found"
+        return obj
 
-    context = {'haunted_location':haunted_location,'haunted_location_description':haunted_location_description}
+    def get_context_data(self, **kwargs):
 
-    return render(request, 'website/detail.html', context)
+        # Call the base implementation first to get a context
+        context = super(HauntedLocationDetail, self).get_context_data(**kwargs)
+        # Add in HTML content
+        context['haunted_location_description'] = self.description
+        return context
+
+
+
+
+
 
 # Create your views here.
