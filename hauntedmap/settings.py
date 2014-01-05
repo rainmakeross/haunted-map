@@ -40,6 +40,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.gis',
     'website',
+    'external_data',
+    'gunicorn'
 )
 
 MIDDLEWARE_CLASSES = (

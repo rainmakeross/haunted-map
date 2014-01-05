@@ -49,4 +49,5 @@ class HauntedLocationDetail(DetailView):
 
 
 
+
 # Create your views here.
