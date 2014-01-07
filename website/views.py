@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic.base import View
-from django.views.generic import ListView, DetailView
-from django.views.generic import DetailView
+from django.views.generic import ListView, DetailView, TemplateView
+
+
 from django.http import HttpResponse, Http404
 from django.views.decorators.cache import cache_page
 from django.template import RequestContext, loader
@@ -20,6 +21,12 @@ class Index(View):
 
         return render(request, self.template_name, context)
 
+class AboutUs(TemplateView):
+    template_name = 'website/about_us.html'
+
+class HowItWorks(TemplateView):
+    template_name = 'website/how_it_works.html'
+
 class HauntedLocationList(ListView):
     model = HauntedLocation
 
@@ -28,8 +35,10 @@ class HauntedLocationDetail(DetailView):
     model = HauntedLocation
     context_object_name = 'haunted_location'
 
+
     def get_object(self, queryset=None):
         obj = super(HauntedLocationDetail, self).get_object(queryset)
+        self.wikipedia_name = obj.name
         try:
             self.description = get_object_or_404(HauntedLocationDescription, haunted_location = obj.id)
         except Http404:
@@ -42,6 +51,7 @@ class HauntedLocationDetail(DetailView):
         context = super(HauntedLocationDetail, self).get_context_data(**kwargs)
         # Add in HTML content
         context['haunted_location_description'] = self.description
+        context['haunted_location_wikipedia_name'] = self.wikipedia_name.replace(" ","_")
         return context
 
 

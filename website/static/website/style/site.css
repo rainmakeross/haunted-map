@@ -34,3 +34,21 @@ body {
     height: 100%;
     width: 100%;
 }
+
+.header_menu {
+    float: right;
+    display: table;
+}
+
+.header_menu li{
+    display: inline;
+    list-style-type: none;
+    padding-right: 5px;
+
+}
+
+.icon{
+    float:left;
+}
+
+

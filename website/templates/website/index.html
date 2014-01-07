@@ -1,20 +1,22 @@
 
 {% extends "website/base.html" %}
 {%  block content %}
-<body onload="mapInit()">
-<div id="mapp" class="smallmap"></div>
-<div id="myData"></div>
-<p>Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png"></p>
-</body>
+    <div class="container">
+        <body onload="mapInit()">
+        <div id="mapp" class="smallmap"></div>
+        <div id="myData"></div>
+        <p>Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png"></p>
+    </div>
+    </body>
 
-<style>
+    <style>
 
-</style>
+    </style>
 {% endblock %}
 
 {% block scripts %}
 
-{% include 'website/_index-script.html' %}
+    {% include 'website/_index-script.html' %}
 
 {% endblock %}
 

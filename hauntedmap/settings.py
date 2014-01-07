@@ -96,6 +96,7 @@ STATIC_URL = '/static/'
 #
 # #Redis Session Cache
 # SESSION_ENGINE = 'redis_sessions.session'
+# SESSION_REDIS_DB = 0
 # SESSION_REDIS_UNIX_DOMAIN_SOCKET_PATH = '/var/run/redis/redis.sock'
 # SESSION_REDIS_PASSWORD = 'ci[BRr=rCP4_;F)'
 #
@@ -105,6 +106,7 @@ STATIC_URL = '/static/'
 #         'BACKEND': 'redis_cache.RedisCache',
 #         'LOCATION': '/var/run/redis/redis.sock',
 #         'OPTIONS': {
+#               'DB': 0,
 #             'PASSWORD': 'ci[BRr=rCP4_;F)',
 #             }
 #     },

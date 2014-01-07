@@ -1,8 +1,20 @@
 <html>
 <div id="header">
+    {% block header_menu %}
+        <div class="container">
+        <div class="icon">[Icon PlaceHolder]</div>
+            <ul class="header_menu">
+                <li> <a href="{% url 'HauntedIndex' %}" > Index </a> </li>
+                <li> <a href="{% url 'AboutUs' %}"> About Us </a></li>
+                <li> <a href="{% url 'HowItWorks' %}"> How It Works? </a></li>
+            </ul>
+        </div>
+    {% endblock %}
     {% block styles %}
         {% load staticfiles %}
-            <link href="{% static "website/style/site.css"  %}" type="text/css" rel="stylesheet" />
+        <link href="{{ STATIC_URL }}website/style/bootstrap.min.css" rel="stylesheet" media="screen">
+        <script src="{{ STATIC_URL }}website/javascript/bootstrap.min.js"></script>
+        <link href="{% static "website/style/site.css"  %}" type="text/css" rel="stylesheet" />
     {% endblock %}
 </div>
 <div id="content">
@@ -11,7 +23,7 @@
     {% endblock %}
 
 </div>
-<div id="footer"></div>
+
 <div id="scripts">
     {%  block scripts %}
 

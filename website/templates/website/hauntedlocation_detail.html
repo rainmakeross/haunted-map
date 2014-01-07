@@ -1,19 +1,24 @@
 {% extends "website/base.html" %}
 
 {% block content %}
-    <h2>Details</h2>
-    <div id="map" style="width:800px; height:300px;"></div>
-    {{ haunted_location.name }}<br>
+    <div class="container">
+        <h2>Haunted Spot Details</h2>
+        <div id="map" style="width:800px; height:300px;"></div>
+        {{ haunted_location.name }}<br>
 
 
-    Latitude: {{ haunted_location.latitude }} <br>
-    Longitude: {{ haunted_location.longitude }} <br>
-    <div id='address'></div>
-
+        Latitude: {{ haunted_location.latitude }} <br>
+        Longitude: {{ haunted_location.longitude }} <br>
+        <div id='address'></div>
+        <p><h1>Wikipedia Entry</h1></p>
+        <div id='wikipedia'></div>
+        <div id ='wikipedia_url'></div>
+    </div>
 {% endblock %}
 
 {% block scripts %}
-    /*load the SDK*/
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="http://www.mapquestapi.com/sdk/js/v7.0.s/mqa.toolkit.js?key=Fmjtd%7Cluur296rnh%2C2a%3Do5-90rsdw"></script>
 
     <script type="text/javascript">
@@ -25,15 +30,15 @@
         MQA.EventUtil.observe(window, 'load', function() {
 
             /*Create an object for options*/
-            var options={
+            var mapOptions={
                 elt:document.getElementById('map'),        /*ID of element on the page where you want the map added*/
-                zoom:10,                                   /*initial zoom level of map*/
+                zoom:20,                                   /*initial zoom level of map*/
                 latLng:{lat:{{ haunted_location.latitude }}, lng:{{ haunted_location.longitude }}},   /*center of map in latitude/longitude*/
                 mtype:'map'                                /*map type (map)*/
             };
 
             /*Construct an instance of MQA.TileMap with the options object*/
-            window.map = new MQA.TileMap(options);
+            window.map = new MQA.TileMap(mapOptions);
 
             MQA.withModule('largezoom','traffictoggle','viewoptions','geolocationcontrol','insetmapcontrol','mousewheel', function() {
 
@@ -52,15 +57,15 @@
                 );
 
                 /*Inset Map Control options */
-                var options={
+                var controlOptions={
                     size:{width:150, height:125},
-                    zoom:3,
+                    zoom:15,
                     mapType:'map',
-                    minimized:true
+                    minimized: true
                 };
 
                 map.addControl(
-                        new MQA.InsetMapControl(options),
+                        new MQA.InsetMapControl(controlOptions),
                         new MQA.MapCornerPlacement(MQA.MapCorner.BOTTOM_RIGHT)
                 );
 
@@ -82,16 +87,56 @@
                         html += response.street + ', ';
                         html += response.adminArea5 + ', ' + response.adminArea3 + ' ' + response.postalCode + '</p>';
                         document.getElementById('address').innerHTML = html;
+                        map.setZoomLevel(15);
                     }
 
                 });
+
+
+
+
+
             });
         });
 
 
-    </script>
+    </script >
 
-    <script>
+    <script type="text/javascript">
+        var url = "http://en.wikipedia.org/w/api.php?action=parse&page={{ haunted_location_wikipedia_name }}&format=json&prop=text&section=0";
+
+
+        $.ajax({
+            type: 'GET',
+            url: url,
+            async: false,
+            jsonpCallback: 'jsonCallback',
+            contentType: "application/json",
+            dataType: 'jsonp',
+            success: function(json) {
+
+                var html = '<p><b>'+json.parse.title +'</b>' ;
+                html += json.parse.text["*"]+'</p>';
+                document.getElementById('wikipedia').innerHTML=html;
+                item = document.getElementById('wikipedia');
+                $('#wikipedia a').contents().unwrap();
+                $('#wikipedia sup').remove();
+                $('#wikipedia table').remove();
+                $('#wikipedia .thumb').remove();
+                $('#wikipedia .error').hide();
+
+
+                contentHtml =  "<p>"+"<a href="+"http://en.wikipedia.org/wiki/{{ haunted_location_wikipedia_name }}"+">"+ "Original Wikipedia Article"+"</a>";
+                document.getElementById('wikipedia_url').innerHTML = contentHtml;
+
+            },
+            error: function(e) {
+                alert(e.message);
+            }
+        });
+
+
+
 
     </script>
 {% endblock %}
