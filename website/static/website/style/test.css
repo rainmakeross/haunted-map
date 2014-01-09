@@ -1,0 +1,80 @@
+/* ---------- Based upon 'reset.css' in the Yahoo! User Interface Library: http://developer.yahoo.com/yui ---------- */
+*, html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, label, fieldset, input, p, blockquote, th, td { margin:0; padding:0 }
+table { border-collapse:collapse; border-spacing:0 }
+fieldset, img { border:0 }
+address, caption, cite, code, dfn, em, strong, th, var { font-style:normal; font-weight:normal }
+ol, ul, li { list-style:none }
+caption, th { text-align:left }
+h1, h2, h3, h4, h5, h6 { font-size:100%; font-weight:normal }
+q:before, q:after { content:''}
+
+strong { font-weight:bold }
+em { font-style:italic }
+a img { border:none } /* Gets rid of IE's blue borders */
+
+sup { font-size: 50%; }
+
+a, a:hover { text-decoration: none; }
+
+
+body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 100%;
+    font-size: 12px;
+    line-height: 1.4em;
+    color: #3d3e41;
+    margin: 50px 0; /* Temporary margin to push down the form */
+}
+
+#tabs {
+font-size: 90%;
+margin: 20px 0;
+width: 520px;
+margin: 0 auto;
+
+}
+#tabs ul {
+float: left;
+background: #E3FEFA;
+width: 100%;
+padding-top: 4px;
+}
+#tabs li {
+margin-left: 8px;
+list-style: none;
+}
+* html #tabs li {
+display: inline; /* ie6 double float margin bug */
+}
+#tabs li,
+#tabs li a {
+float: left;
+}
+#tabs ul li a {
+text-decoration: none;
+padding: 8px;
+color: #0073BF;
+font-weight: bold;
+}
+#tabs ul li.active {
+background: #CEE1EF  no-repeat right top;
+}
+#tabs ul li.active a {
+background: #FFFFBF  no-repeat left top;
+color: #333333;
+}
+#tabs div {
+background: #CEE1EF;
+clear: both;
+padding: 20px;
+min-height: 200px;
+}
+#tabs div h3 {
+text-transform: uppercase;
+margin-bottom: 10px;
+letter-spacing: 1px;
+}
+
+#tabs div p {
+line-height: 150%;
+}

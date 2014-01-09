@@ -1,0 +1,67 @@
+<html>
+<body>
+{% load staticfiles %}
+<link href="{% static "website/style/site.css"  %}" type="text/css" rel="stylesheet" />
+
+<div id="tabs">
+
+
+
+</div> <!-- end tabs -->
+</body>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="application/javascript">
+
+$(document).ready(function() {
+        var url = "http://hauntedmap.com/external_data/youtube_search/{{ haunted_location_youtube_name }},5";
+
+
+        $.ajax({
+            type: 'GET',
+            url: url,
+            async: false,
+            jsonpCallback: 'jsonCallback',
+            contentType: "application/json",
+            dataType: 'json',
+            success: function(json) {
+
+                var urls = new Array();
+                var youtube_embed_url_before = "http://www.youtube.com/embed/";
+                var youtube_embed_url_after = "?enablejsapi=1"
+
+                var html = '';
+                var list_html = '';
+                jQuery.each(json.video_list,function(idx,entry){
+                    index = idx+1;
+                    embed_link = youtube_embed_url_before+entry.video.videoId+youtube_embed_url_after;
+                    html += "<div id=tab-"+index+">"+"<iframe src="+embed_link +"></iframe> </div>";
+
+
+
+                });
+
+
+                document.getElementById('tabs').innerHTML += html;
+
+
+
+
+
+
+
+
+            },
+            error: function(e) {
+                alert(e.message);
+            }
+        });
+    });
+
+
+
+
+
+
+</script>
+</html>

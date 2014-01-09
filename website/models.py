@@ -33,6 +33,7 @@ class  HauntedLocation(models.Model):
         return url
     slug = property(_url)
 
+
     @models.permalink
     def get_absolute_url(self):
         return ('HauntedLocationDetail', (slugify(self.name), slugify(self.id)))

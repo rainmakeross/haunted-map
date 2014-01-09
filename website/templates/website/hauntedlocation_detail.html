@@ -13,12 +13,15 @@
         <p><h1>Wikipedia Entry</h1></p>
         <div id='wikipedia'></div>
         <div id ='wikipedia_url'></div>
+
+        <p><h1>YouTube Videos</h1></p>
+        {%  include 'website/partial/_youtube_search.html' %}
     </div>
 {% endblock %}
 
 {% block scripts %}
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
     <script src="http://www.mapquestapi.com/sdk/js/v7.0.s/mqa.toolkit.js?key=Fmjtd%7Cluur296rnh%2C2a%3Do5-90rsdw"></script>
 
     <script type="text/javascript">
@@ -114,16 +117,18 @@
             contentType: "application/json",
             dataType: 'jsonp',
             success: function(json) {
+                if (typeof json.error == "undefined"){
+                    var html = '<p><b>'+json.parse.title +'</b>' ;
+                    html += json.parse.text["*"]+'</p>';
+                    document.getElementById('wikipedia').innerHTML=html;
+                    item = document.getElementById('wikipedia');
+                    $('#wikipedia a').contents().unwrap();
+                    $('#wikipedia sup').remove();
+                    $('#wikipedia table').remove();
+                    $('#wikipedia .thumb').remove();
+                    $('#wikipedia .error').hide();
 
-                var html = '<p><b>'+json.parse.title +'</b>' ;
-                html += json.parse.text["*"]+'</p>';
-                document.getElementById('wikipedia').innerHTML=html;
-                item = document.getElementById('wikipedia');
-                $('#wikipedia a').contents().unwrap();
-                $('#wikipedia sup').remove();
-                $('#wikipedia table').remove();
-                $('#wikipedia .thumb').remove();
-                $('#wikipedia .error').hide();
+                }
 
 
                 contentHtml =  "<p>"+"<a href="+"http://en.wikipedia.org/wiki/{{ haunted_location_wikipedia_name }}"+">"+ "Original Wikipedia Article"+"</a>";
