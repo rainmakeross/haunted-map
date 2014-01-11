@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="search">
+    <div id="location_search">
+        <form id="searchForm" action="{% url 'HauntedLocationSearch' %}" method="get">
+            Query: <input type="text" name="query"><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
+<div id="search_results">
+
+</div>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="application/javascript">
+    $("form#searchForm").submit(function() {
+
+        var url = "{% url 'HauntedLocationSearch' %}"; // the script where you handle the form input.
+
+        $.ajax({
+            type: "get",
+            url: url,
+            data: $("form#searchForm").serialize(), // serializes the form's elements.
+            success: function(data)
+            {
+                document.getElementById('search_results').innerHTML=data;
+                alert(data); // show response from the php script.
+            }
+        });
+
+        return false; // avoid to execute the actual submit of the form.
+    });
+    function doFocusLocation(obj){
+        alert(obj.getAttribute("href"));
+        return false;
+    }
+</script>
+</body>
+</html>

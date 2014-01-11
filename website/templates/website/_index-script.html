@@ -1,11 +1,14 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&sensor=false"></script>
 <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
-<script src="http://www.openstreetmap.org/openlayers/OpenStreetMap.js"></script>
+{% load staticfiles %}
+<script src="{{ STATIC_URL }}website/javascript/jquery.ba-outside-events.js"> </script>
+
 <script>
 
 
-
+    var map;
+    var pointsLayer;
 
     function mapInit(){
         var lon = 0;
@@ -13,10 +16,11 @@
         var zoom = 3;
 
         map = new OpenLayers.Map("mapp", {
-            units : 'm'
+            units : 'm',
+            id:'haunted_map'
         });
 
-        layerMapnik = new OpenLayers.Layer.OSM.Mapnik("Mapnik");
+
         var gsat = new OpenLayers.Layer.Google(
                 "Google Satellite",
                 {type: google.maps.MapTypeId.SATELLITE, numZoomLevels: 22, sphericalMercator: true}
@@ -51,8 +55,8 @@
 
         map.addLayer(baseOSM);
         map.addLayer(baseAerial);
-        layerMapnik.setOpacity(1);
-        map.addLayer(layerMapnik);
+
+
         map.addLayer(gsat);
         map.addLayer(gphy);
         map.addLayer(gmap);
@@ -75,7 +79,7 @@
             {% for haunted_location in haunted_location_list %}
 
                 var tempFeature = new OpenLayers.Feature.Vector(new OpenLayers.Geometry.Point({{ haunted_location.longitude }}, {{ haunted_location.latitude }}).transform(new OpenLayers.Projection("EPSG:4326"), map
-                        .getProjectionObject()),{category:'{{haunted_location.category}}', slug:'{{haunted_location.get_absolute_url}}', name:'{{ haunted_location.name }}'});
+                        .getProjectionObject()),{category:'{{haunted_location.category}}', slug:'{{haunted_location.get_absolute_url}}', name:'{{ haunted_location.name }}', id:'{{ haunted_location.id }}', lat:'{{ haunted_location.latitude }}', lon:'{{ haunted_location.longitude }}'});
 
                 featuresArray.push(tempFeature);
             {% endfor %}
@@ -115,7 +119,7 @@
 
         var defaultStyle = new OpenLayers.Style(defaultTemplate, {context: context});
         var selectStyle = new OpenLayers.Style(selectTemplate, {context: context});
-        var pointsLayer = new OpenLayers.Layer.Vector("Points Layer",{
+        pointsLayer = new OpenLayers.Layer.Vector("Haunted Locations",{
             styleMap: new OpenLayers.StyleMap({default: defaultStyle, select:selectStyle}),
             rendererOptions: {zIndexing: true},
             eventListeners:{
@@ -172,6 +176,28 @@
         var select = new OpenLayers.Control.SelectFeature(pointsLayer, {hover: true});
         map.addControl(select);
         select.activate();
+
+
+        function doFocusLocation(obj){
+
+            var id = obj.getAttribute("data_id");
+            var feature = pointsLayer.getFeaturesByAttribute("id",id);
+            var lon = feature.lon;
+            var lat = feature.lat;
+            map.setCenter()
+            alert(feature.attributes.id);
+            {% comment %}   map.setCenter(10,10,5);{% endcomment %}
+
+            return false;
+        }
+        $( document ).ready(function() {
+            $('#search_results').bind('clickoutside', function (event) {
+
+                $('#search_results').removeClass('search_results_active');
+                $('#search_results').addClass('search_results_inactive');
+
+            });
+        });
 
 
 

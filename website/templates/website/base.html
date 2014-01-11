@@ -17,6 +17,8 @@
         <script src="{{ STATIC_URL }}website/javascript/bootstrap.min.js"></script>
         <link href="{% static "website/style/site.css"  %}" type="text/css" rel="stylesheet" />
     {% endblock %}
+    {% block search_bar %}
+    {% endblock %}
 </div>
 <div id="content">
     {% block content %}

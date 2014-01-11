@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic.base import View
-from django.views.generic import ListView, DetailView, TemplateView
+from django.views.generic import ListView, DetailView, TemplateView, FormView
 from django.template.defaultfilters import slugify
+from forms import SearchForm
+from django.views.generic.edit import ProcessFormView
 
-
+import json
 
 
 from django.http import HttpResponse, Http404
@@ -11,6 +13,29 @@ from django.views.decorators.cache import cache_page
 from django.template import RequestContext, loader
 
 from models import HauntedLocation, HauntedLocationDescription
+
+
+class JSONResponseMixin(object):
+    """
+    A mixin that can be used to render a JSON response.
+    """
+    def render_to_json_response(self, context, **response_kwargs):
+        """
+        Returns a JSON response, transforming 'context' to make the payload.
+        """
+        return HttpResponse(
+            self.convert_context_to_json(context),
+            content_type='application/json',
+            **response_kwargs
+        )
+
+    def convert_context_to_json(self, context):
+        "Convert the context dictionary into a JSON object"
+        # Note: This is *EXTREMELY* naive; in reality, you'll need
+        # to do much more complex handling to ensure that arbitrary
+        # objects -- such as Django model instances or querysets
+        # -- can be serialized as JSON.
+        return json.dumps(context)
 
 
 #@cache_page(60 * 1)
@@ -31,8 +56,44 @@ class AboutUs(TemplateView):
 class HowItWorks(TemplateView):
     template_name = 'website/how_it_works.html'
 
-class HauntedLocationList(ListView):
+
+class HauntedLocationSearch(ListView):
+    template_name = 'website/hauntedlocation_search.html'
+    context_object_name = 'haunted_location_list'
+
     model = HauntedLocation
+
+    # def post(self, request, *args, **kwargs):
+    #     context ={'results':"1"}
+    #     if(request.POST["query"]):
+    #         query = request.POST["query"]
+    #         print request.POST["query"]
+    #         haunted_location_list = HauntedLocation.objects.filter(name__icontains=query)
+    #         context ={'results': haunted_location_list}
+    #     print context
+    #     return HttpResponse(context)
+    #
+    #
+    # def get(self, request, *args, **kwargs):
+    #     return render(request,self.template_name,self.context)
+
+    def get_queryset(self):
+        if self.request.REQUEST.get("query"):
+            self.query = self.request.REQUEST.get("query");
+            self.search_obj = HauntedLocation.objects.filter(name__icontains=self.query)
+        return HauntedLocation.objects.all()
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super(HauntedLocationSearch, self).get_context_data(**kwargs)
+        # Add in the publisher
+        if hasattr(self, 'query'):
+            context['search_results'] = self.search_obj
+
+        return context
+
+
+
 
 #@cache_page(60 * 1)
 class HauntedLocationDetail(DetailView):
@@ -63,8 +124,9 @@ class HauntedLocationDetail(DetailView):
 
 
 
-class YouTubeSearchPartialView(TemplateView):
-    template_name = 'website/partial/_youtube_search.html'
+class TestView(TemplateView):
+    template_name = 'website/test.html'
+
 
 
 

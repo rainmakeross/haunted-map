@@ -1,22 +1,86 @@
 
 {% extends "website/base.html" %}
+{% block search_bar %}
+    <div id="search" class="container">
+        <div class="searchForm">
+            <form id="LocationSearchForm" action="{% url 'HauntedLocationSearch' %}" method="get">
+
+                <div class="input text"><label for="UserSearchForAFriend'sPage">Search For A Friend's Page</label>
+                    <input type="text" name="query" id="locationQuery" /></div>
+                <div class=submit"><input type="submit" value="Submit" /> </div>
+            </form>
+        </div>
+        <div id="search_results" class="search_results_inactive">
+
+        </div>
+    </div>
+
+{% endblock %}
 {%  block content %}
 
-        <body onload="mapInit()">
+    <body onload="mapInit()">
+    <div id ="#content">
         <div id="mapp" class="smallmap"></div>
-        <div id="myData"></div>
-        <p>Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png"></p>
 
+        <p>Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png"></p>
+    </div>
     </body>
 
-    <style>
 
-    </style>
 {% endblock %}
 
 {% block scripts %}
 
     {% include 'website/_index-script.html' %}
+
+    <script type="application/javascript">
+        $("form#LocationSearchForm").submit(function() {
+
+            var url = "{% url 'HauntedLocationSearch' %}"; // the script where you handle the form input.
+
+            $.ajax({
+                type: "get",
+                url: url,
+                data: $("form#LocationSearchForm").serialize(), // serializes the form's elements.
+                success: function(data)
+                {
+
+                    $('#search_results').html(data);
+                    $('#search_results').addClass('search_results_active');
+
+                }
+            });
+
+            return false; // avoid to execute the actual submit of the form.
+        });
+
+
+
+        function doFocusLocation(obj){
+
+            var id = obj.getAttribute("data_id");
+            var feature = pointsLayer.getFeaturesByAttribute("id",id)[0];
+            var lon = feature.attributes.lon;
+            var lat = feature.attributes.lat;
+            var zoom = 10;
+            var lonLat = new OpenLayers.LonLat(lon, lat).transform(new OpenLayers.Projection("EPSG:4326"), map
+                    .getProjectionObject());
+            map.setCenter(lonLat, zoom);
+
+            {% comment %}   map.setCenter(10,10,5);{% endcomment %}
+
+            return false;
+        }
+        $( document ).ready(function() {
+            $('#search_results').bind('clickoutside', function (event) {
+
+                $('#search_results').removeClass('search_results_active');
+                $('#search_results').addClass('search_results_inactive');
+
+            });
+        });
+
+    </script>
 
 {% endblock %}
 
