@@ -1,23 +1,170 @@
 <html>
+<head>
+
+    <title>Unify | Welcome...</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    {% block styles %}
+        <!-- CSS Global Compulsory-->
+        {% load staticfiles %}
+        <link rel="stylesheet" href="{{ STATIC_URL }}website/plugins/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}website/css/style.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}website/css/headers/header1.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}website/css/responsive.css">
+        <link rel="shortcut icon" href="favicon.ico">
+        <!-- CSS Implementing Plugins -->
+        <link rel="stylesheet" href="{{ STATIC_URL }}website/plugins/font-awesome/css/font-awesome.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}website/plugins/flexslider/flexslider.css" type="text/css" media="screen">
+        <!-- CSS Theme -->
+        <link rel="stylesheet" href="{{ STATIC_URL }}website/css/themes/default.css" id="style_color">
+        <link rel="stylesheet" href="{{ STATIC_URL }}website/css/themes/headers/default.css" id="style_color-header-1">
+        <!-- Site Specific Styles -->
+        <link href="{% static "website/style/site.css"  %}" type="text/css" rel="stylesheet" id="site_specific"/>
+    {% endblock %}
+
+</head>
+<body>
 <div id="header">
     {% block header_menu %}
-        <div class="container">
-        <div class="icon">[Icon PlaceHolder]</div>
-            <ul class="header_menu">
-                <li> <a href="{% url 'HauntedIndex' %}" > Index </a> </li>
-                <li> <a href="{% url 'AboutUs' %}"> About Us </a></li>
-                <li> <a href="{% url 'HowItWorks' %}"> How It Works? </a></li>
-            </ul>
-        </div>
-    {% endblock %}
-    {% block styles %}
-        {% load staticfiles %}
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <link href="{{ STATIC_URL }}website/style/bootstrap.min.css" rel="stylesheet" media="screen">
-        <script src="{{ STATIC_URL }}website/javascript/bootstrap.min.js"></script>
-        <link href="{% static "website/style/site.css"  %}" type="text/css" rel="stylesheet" />
-    {% endblock %}
-    {% block search_bar %}
+        <!--=== Header ===-->
+        <div class="header">
+            <div class="navbar navbar-default" role="navigation">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/website/">
+                            {% load staticfiles %}
+                            <img id="logo-header" src="{{ STATIC_URL }}/website/icons/ghost/ghost-icon.png" alt="Logo" style="height:50px; width:50px">
+                        </a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse navbar-responsive-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
+                                    Home
+                                    <i class="icon-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/website/">Home Page</a></li>
+{% comment %}                                    <li><a href="page_home1.html">Option 2: Layer Slider</a></li>
+                                    <li><a href="page_home2.html">Option 3: Revolution Slider</a></li>
+                                    <li><a href="page_home3.html">Option 4: Amazing Content</a></li>
+                                    <li><a href="page_home4.html">Option 5: Home Sidebar</a></li>
+                                    <li><a href="page_home5.html">Option 6: Home Flatty</a></li>
+                                    <li><a href="page_home6.html">Option 7: Home Magazine</a></li>
+                                    <li><a href="page_home7.html">Option 8: Home Portfolio</a></li>{% endcomment %}
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
+                                    Pages
+                                    <i class="icon-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="active"><a href="about_us">About Us</a></li>
+                                </ul>
+                            </li>
+                            {% comment %}   <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
+                                    Features
+                                    <i class="icon-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="feature_grid.html">Grid Layout</a></li>
+                                    <li><a href="feature_boxes.html">Content Boxes</a></li>
+                                    <li><a href="feature_typography.html">Typography</a></li>
+                                    <li><a href="feature_tagline_boxes.html">Tagline Boxes</a></li>
+                                    <li><a href="feature_buttons.html">Buttons</a></li>
+                                    <li><a href="feature_icons.html">Icons</a></li>
+                                    <li><a href="feature_thumbails.html">Thumbails</a></li>
+                                    <li><a href="feature_components.html">Components</a></li>
+                                    <li><a href="feature_accardion_and_tabs.html">Accardion and Tabs</a></li>
+                                    <li><a href="feature_navigations.html">Navigations</a></li>
+                                    <li><a href="feature_tables.html">Tables</a></li>
+                                    <li><a href="feature_forms.html">Forms</a></li>
+                                    <li><a href="feature_testimonials.html">Testimonials</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
+                                    Portfolio
+                                    <i class="icon-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="portfolio_text_blocks.html">Portfolio Text Blocks</a></li>
+                                    <li><a href="portfolio_2_column.html">Portfolio 2 Columns</a></li>
+                                    <li><a href="portfolio_3_column.html">Portfolio 3 Columns</a></li>
+                                    <li><a href="portfolio_4_column.html">Portfolio 4 Columns</a></li>
+                                    <li><a href="portfolio_item.html">Portfolio Item Option 1</a></li>
+                                    <li><a href="portfolio_item1.html">Portfolio Item Option 2</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
+                                    Blog
+                                    <i class="icon-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="blog_page.html">Blog Page</a></li>
+                                    <li><a href="blog_large.html">Blog Large</a></li>
+                                    <li><a href="blog_medium.html">Blog Medium</a></li>
+                                    <li><a href="blog_full_width.html">Blog Full Width</a></li>
+                                    <li><a href="blog_left_sidebar.html">Blog Left Sidebar</a></li>
+                                    <li><a href="blog_right_sidebar.html">Blog Right Sidebar</a></li>
+                                    <li><a href="blog_item_option1.html">Blog Item Option 1</a></li>
+                                    <li><a href="blog_item_option2.html">Blog Item Option 2</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
+                                    Contacts
+                                    <i class="icon-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="page_contact1.html">Contacts Default</a></li>
+                                    <li><a href="page_contact2.html">Contacts Option 1</a></li>
+                                    <li><a href="page_contact3.html">Contacts Option 2</a></li>
+                                </ul>
+                            </li>{% endcomment %}
+                            <li class="hidden-sm"><a class="search"><i class="icon-search search-btn"></i></a></li>
+                        </ul>
+                        {% block search_bar %}
+                        {% endblock %}
+                        <div class="search-open">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+                            <button class="btn-u" type="button">Go</button>
+                        </span>
+                            </div><!-- /input-group -->
+                        </div>
+                    </div><!-- /navbar-collapse -->
+                </div>
+            </div>
+
+        </div><!--/header-->
+        <!--=== End Header ===-->
+
+
+
+
+
+
+
+
+
     {% endblock %}
 </div>
 <div id="content">
@@ -32,4 +179,127 @@
 
     {% endblock %}
 </div>
+
+
+<!--=== Footer ===-->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 md-margin-bottom-40">
+                <!-- About -->
+                <div class="headline"><h2>About</h2></div>
+                <p class="margin-bottom-25 md-margin-bottom-40">Unify is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals.</p>
+
+                <!-- Monthly Newsletter -->
+                <div class="headline"><h2>Monthly Newsletter</h2></div>
+                <p>Subscribe to our newsletter and stay up to date with the latest news and deals!</p>
+                <form class="footer-subsribe">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Email Address">
+                        <span class="input-group-btn">
+                            <button class="btn-u" type="button">Subscribe</button>
+                        </span>
+                    </div><!-- /input-group -->
+                </form>
+            </div><!--/col-md-4-->
+
+            <div class="col-md-4 md-margin-bottom-40">
+                <div class="posts">
+                    <div class="headline"><h2>Recent Blog Entries</h2></div>
+                    <dl class="dl-horizontal">
+                        {% load staticfiles %}
+                        <dt><a href="#"><img src="{{ STATIC_URL }}website/img/sliders/elastislide/6.jpg" alt="" /></a></dt>
+                        <dd>
+                            <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p>
+                        </dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                        <dt><a href="#"><img src="{{ STATIC_URL }}website/img/sliders/elastislide/10.jpg" alt="" /></a></dt>
+                        <dd>
+                            <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p>
+                        </dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                        <dt><a href="#"><img src="{{ STATIC_URL }}website/img/sliders/elastislide/11.jpg" alt="" /></a></dt>
+                        <dd>
+                            <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p>
+                        </dd>
+                    </dl>
+                </div>
+            </div><!--/col-md-4-->
+
+            <div class="col-md-4">
+                <!-- Monthly Newsletter -->
+                <div class="headline"><h2>Contact Us</h2></div>
+                <address class="md-margin-bottom-40">
+                    25, Lorem Lis Street, Orange <br />
+                    California, US <br />
+                    Phone: 800 123 3456 <br />
+                    Fax: 800 123 3456 <br />
+                    Email: <a href="mailto:info@anybiz.com" class="">info@anybiz.com</a>
+                </address>
+
+                <!-- Stay Connected -->
+                <div class="headline"><h2>Stay Connected</h2></div>
+                <ul class="social-icons">
+                    <li><a href="#" data-original-title="Feed" class="social_rss"></a></li>
+                    <li><a href="#" data-original-title="Facebook" class="social_facebook"></a></li>
+                    <li><a href="#" data-original-title="Twitter" class="social_twitter"></a></li>
+                    <li><a href="#" data-original-title="Goole Plus" class="social_googleplus"></a></li>
+                    <li><a href="#" data-original-title="Pinterest" class="social_pintrest"></a></li>
+                    <li><a href="#" data-original-title="Linkedin" class="social_linkedin"></a></li>
+                    <li><a href="#" data-original-title="Vimeo" class="social_vimeo"></a></li>
+                </ul>
+            </div><!--/col-md-4-->
+        </div><!--/row-->
+    </div><!--/container-->
+</div><!--/footer-->
+<!--=== End Footer ===-->
+
+
+
+
+<!--=== Copyright ===-->
+<div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="copyright-space">
+                    2013 &copy; Unify. ALL Rights Reserved.
+                    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+                </p>
+            </div>
+            <div class="col-md-6">
+                <a href="index.html">
+                    {% load staticfiles %}
+                    <img id="logo-footer" src="{{ STATIC_URL }}website/icons/ghost/Ghost-icon.png" class="pull-right" alt="" />
+                </a>
+            </div>
+        </div><!--/row-->
+    </div><!--/container-->
+</div><!--/copyright-->
+<!--=== End Copyright ===-->
+
+<!-- JS Global Compulsory -->
+{% load staticfiles %}
+<script type="text/javascript" src="{{ STATIC_URL }}website/plugins/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}website/plugins/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}website/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}website/plugins/hover-dropdown.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}website/plugins/back-to-top.js"></script>
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="{{ STATIC_URL }}website/plugins/flexslider/jquery.flexslider-min.js"></script>
+<!-- JS Page Level -->
+<script type="text/javascript" src="{{ STATIC_URL }}website/js/app.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        App.init();
+        App.initSliders();
+    });
+</script>
+<!--[if lt IE 9]>
+    <script src="assets/plugins/respond.js"></script>
+<![endif]-->
+
+</body>
 </html>

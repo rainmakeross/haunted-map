@@ -41,7 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.gis',
     'website',
     'external_data',
-    'gunicorn'
+    #'gunicorn'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -69,7 +69,7 @@ DATABASES = {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'hauntedmap',
         'USER': 'appUser',
-        'HOST': 'localhost',
+        'HOST': '54.243.238.190',
         'PASSWORD': 'FulGrain123$'
     }
 }
