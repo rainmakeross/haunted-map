@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 import socket
+import django_facebook
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -41,6 +42,7 @@ INSTALLED_APPS = (
     'django.contrib.gis',
     'website',
     'external_data',
+    'django_facebook',
     #'gunicorn'
 )
 
@@ -111,3 +113,38 @@ STATIC_URL = '/static/'
 #             }
 #     },
 #     }
+
+#Facebook App Secure Info
+FACEBOOK_APP_ID = '275585332592670'
+FACEBOOK_APP_SECRET = 'a9e1f9fc3b1f22bf42c800673e7abffb'
+
+#Template Context Processors for FaceBook Integration
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+"django.contrib.auth.context_processors.auth",
+"django.core.context_processors.debug",
+"django.core.context_processors.i18n",
+"django.core.context_processors.media",
+"django.core.context_processors.static",
+"django.core.context_processors.tz",
+"django.contrib.messages.context_processors.messages",
+ "django_facebook.context_processors.facebook",)
+
+#Authentication Backend
+AUTHENTICATION_BACKENDS = (
+    'django_facebook.auth_backends.FacebookBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+# Custom User Model
+AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
+
+# Custom Profile Model
+AUTH_PROFILE_MODULE = 'django_facebook.FacebookProfile'
+
+
+#Logging
+LOGGING_CONFIG = 'logging.config.dictConfig'
+
+
+

@@ -3,7 +3,7 @@ __author__ = 'derya'
 from django.conf.urls import patterns, url
 from django.views.decorators.http import require_http_methods, require_POST, require_GET
 
-from views import Index, HauntedLocationSearch, HauntedLocationDetail, AboutUs, HowItWorks, TestView
+from views import Index, HauntedLocationSearch, HauntedLocationDetail, AboutUs, HowItWorks, TestView, HauntedEpisodeGuide
 
 urlpatterns = patterns('',
 
@@ -13,7 +13,8 @@ urlpatterns = patterns('',
     url(r'^about_us$',AboutUs.as_view(), name='AboutUs'),
     url(r'^how_it_works$',HowItWorks.as_view(), name='HowItWorks'),
     url(r'^test$',TestView.as_view(), name='test'),
-    #JSON returns
+    url(r'^episode_guide',HauntedEpisodeGuide.as_view(), name='HauntedEpisodeGuide'),
+    #POST returns
     url(r'^search$',HauntedLocationSearch.as_view(), name='HauntedLocationSearch'),
 
 

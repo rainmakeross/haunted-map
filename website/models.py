@@ -51,7 +51,13 @@ class HauntedLocationDescription(models.Model):
     haunted_location = models.ForeignKey(HauntedLocation, unique=True)
     html_content = models.TextField()
 
-
+class TvShow(models.Model):
+    def __unicode__(self):
+        return self.name
+    name = models.CharField(max_length=255)
+    tvdb_id = models.IntegerField(blank=True)
+    imdb_id = models.CharField(max_length=255, blank=True)
+    zap2it_id = models.CharField(max_length=255, blank=True)
 
 # Auto-generated `LayerMapping` dictionary for  --srid=4326 model
 HauntedLocation_mapping = {

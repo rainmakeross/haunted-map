@@ -1,18 +1,23 @@
+from urllib2 import urlopen
+from xml.dom import minidom
 from django.shortcuts import render, get_object_or_404
 from django.views.generic.base import View
 from django.views.generic import ListView, DetailView, TemplateView, FormView
 from django.template.defaultfilters import slugify
 from forms import SearchForm
 from django.views.generic.edit import ProcessFormView
+from open_facebook import OpenFacebook
 
 import json
 
 
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpRequest
 from django.views.decorators.cache import cache_page
 from django.template import RequestContext, loader
 
-from models import HauntedLocation, HauntedLocationDescription
+from models import HauntedLocation, HauntedLocationDescription, TvShow
+
+
 
 
 class JSONResponseMixin(object):
@@ -124,8 +129,71 @@ class HauntedLocationDetail(DetailView):
 
 
 
+
+
 class TestView(TemplateView):
     template_name = 'website/test.html'
+
+
+class HauntedEpisodeGuide(ListView):
+    model = TvShow
+    template_name = 'website/episode_guide.html'
+    context_object_name = 'tvshows'
+
+    TVDB_API_KEY = '9036B99877C335CD'
+    url_base = 'http://thetvdb.com/api/'
+    url = url_base +TVDB_API_KEY+'/series/125391/all/'
+
+
+
+    def get_queryset(self):
+        if self.request.REQUEST.get("id"):
+            self.query_id = self.request.REQUEST.get("id");
+            try:
+                search_obj = get_object_or_404(TvShow, id=self.query_id)
+                self.tvdb_id = str(search_obj.tvdb_id)
+            except Http404:
+                self.tvdb_id = None
+        return TvShow.objects.all()
+
+    def get_context_data(self, **kwargs):
+        #Calling the base implementation for context
+        context = super(HauntedEpisodeGuide, self).get_context_data(**kwargs)
+        # Get Episodes Return
+        try:
+            context['episodes_list'] = self.get_episodes(self.tvdb_id)
+        except Exception as e:
+            print 'episode server problem' + str(e)
+        if self.request.REQUEST.get("id"):
+            try:
+                context['query_id'] = int(self.query_id)
+                print self.query_id
+            except:
+                print 'no query selected'
+        return context
+
+    def get_episodes(self,series_id):
+        episodes_list = []
+
+
+        self.url = self.url_base + self.TVDB_API_KEY+'/series/'+series_id+'/all/'
+        xml_doc = urlopen(self.url)
+        parsed_xml = minidom.parse(xml_doc)
+        episodes = parsed_xml.getElementsByTagName("Episode")
+        for episode in episodes:
+            episode_dict = {}
+            episode_name = episode.getElementsByTagName("EpisodeName")[0].firstChild.data
+            episode_id = episode.getElementsByTagName("id")[0].firstChild.data
+            episode_number = episode.getElementsByTagName("EpisodeNumber")[0].firstChild.data
+            season_number = episode.getElementsByTagName("SeasonNumber")[0].firstChild.data
+            language = episode.getElementsByTagName("Language")[0].firstChild.data
+            try:
+                overview = episode.getElementsByTagName("Overview")[0].firstChild.data
+            except:
+                overview =''
+            episode_dict = dict(episode_name=episode_name,episode_id=episode_id, episode_number=episode_number, season_number=season_number,language=language, overview=overview)
+            episodes_list.append(episode_dict)
+        return episodes_list
 
 
 

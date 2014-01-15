@@ -1,0 +1,41 @@
+{% extends "website/base.html" %}
+{% block content %}
+    <div class="container">
+        <form name="myform" method="GET">
+            <div align="center">
+                <select name="id">
+                    {% for tvshow in tvshows %}
+                        {% if query_id == tvshow.id %}
+                            <option value="{{ tvshow.id }}" selected>{{ tvshow.name }}</option>
+                        {% else %}
+                            {{ query_id }}
+                            {{ tvshow.id }}
+                            <option value="{{ tvshow.id }}">{{ tvshow.name }}</option>
+                        {% endif %}
+
+                    {% endfor %}
+                </select>
+                <input type="submit" value="Search">
+            </div>
+        </form>
+        {% if episodes_list %}
+            <table class="table">
+                <tr>
+                    <th>Episode Name</th>
+                    <th>Episode Number</th>
+                    <th>Season</th>
+                    <th>Summary</th>
+                </tr>
+
+                {% for episode in episodes_list %}
+                    <tr>
+                        <td>{{ episode.episode_name }}</td>
+                        <td>{{ episode.episode_number }}</td>
+                        <td>{{ episode.season_number }}</td>
+                        <td>{{ episode.overview }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {%  endif %}
+    </div>
+{% endblock %}

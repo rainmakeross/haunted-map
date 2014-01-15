@@ -1,3 +1,5 @@
 django
+django_facebook
 psycopg2
 google-api-python-client
+pillow
