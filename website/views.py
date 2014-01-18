@@ -2,9 +2,10 @@ from urllib2 import urlopen
 from xml.dom import minidom
 from django.shortcuts import render, get_object_or_404
 from django.views.generic.base import View
-from django.views.generic import ListView, DetailView, TemplateView, FormView
-from django.template.defaultfilters import slugify
-from forms import SearchForm
+from django.views.generic import ListView, DetailView, TemplateView, CreateView
+from django.template.defaultfilters import slugify, register
+from django.utils.decorators import method_decorator
+from forms import NewsletterForm
 from django.views.generic.edit import ProcessFormView
 from open_facebook import OpenFacebook
 
@@ -13,9 +14,10 @@ import json
 
 from django.http import HttpResponse, Http404, HttpRequest
 from django.views.decorators.cache import cache_page
+
 from django.template import RequestContext, loader
 
-from models import HauntedLocation, HauntedLocationDescription, TvShow
+from models import HauntedLocation, HauntedLocationDescription, TvShow, Newsletter
 
 
 
@@ -194,6 +196,8 @@ class HauntedEpisodeGuide(ListView):
             episode_dict = dict(episode_name=episode_name,episode_id=episode_id, episode_number=episode_number, season_number=season_number,language=language, overview=overview)
             episodes_list.append(episode_dict)
         return episodes_list
+
+
 
 
 

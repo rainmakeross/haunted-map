@@ -58,7 +58,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/website/">Home Page</a></li>
-{% comment %}                                    <li><a href="page_home1.html">Option 2: Layer Slider</a></li>
+                                    {% comment %}                                    <li><a href="page_home1.html">Option 2: Layer Slider</a></li>
                                     <li><a href="page_home2.html">Option 3: Revolution Slider</a></li>
                                     <li><a href="page_home3.html">Option 4: Amazing Content</a></li>
                                     <li><a href="page_home4.html">Option 5: Home Sidebar</a></li>
@@ -143,14 +143,14 @@
                         </ul>
                         {% block search_bar %}
                         {% endblock %}
-                        <div class="search-open">
+                        {% comment %} <div class="search-open">
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Search">
                         <span class="input-group-btn">
                             <button class="btn-u" type="button">Go</button>
                         </span>
                             </div><!-- /input-group -->
-                        </div>
+                        </div>{% endcomment %}
                     </div><!-- /navbar-collapse -->
                 </div>
             </div>
@@ -189,16 +189,19 @@
             <div class="col-md-4 md-margin-bottom-40">
                 <!-- About -->
                 <div class="headline"><h2>About</h2></div>
-                <p class="margin-bottom-25 md-margin-bottom-40">Unify is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals.</p>
+                <p class="margin-bottom-25 md-margin-bottom-40">HauntedMap is the awesome app for finding any place or any one that go bump at night.
+                    Whether you are looking for Haunted Locations or Paranormal Investigators, you came to the right place.</p>
+
 
                 <!-- Monthly Newsletter -->
                 <div class="headline"><h2>Monthly Newsletter</h2></div>
-                <p>Subscribe to our newsletter and stay up to date with the latest news and deals!</p>
-                <form class="footer-subsribe">
+                <p>Subscribe to our newsletter and stay up to date with recent developments and new features!</p>
+                <form action="{% url 'NewsletterView' %}" method="post" class="footer-subsribe">{% csrf_token %}
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Email Address">
+                        <input type="text" maxlength="255" name="email" class="form-control" placeholder="Email Address" id="id_email">
+{#                        <label for="id_email">Email:</label> <input id="id_email" class="form-control" maxlength="255" name="email" type="text" />#}
                         <span class="input-group-btn">
-                            <button class="btn-u" type="button">Subscribe</button>
+                            <button class="btn-u" type="submit">Subscribe</button>
                         </span>
                     </div><!-- /input-group -->
                 </form>
@@ -209,23 +212,23 @@
                     <div class="headline"><h2>Recent Blog Entries</h2></div>
                     <dl class="dl-horizontal">
                         {% load staticfiles %}
-                        <dt><a href="#"><img src="{{ STATIC_URL }}website/img/sliders/elastislide/6.jpg" alt="" /></a></dt>
+                        <dt><a href="http://hauntedmap.blogspot.ca/2014/01/choice-of-blog-service-does-it-matter.html"><img src="{{ STATIC_URL }}website/img/sliders/elastislide/6.jpg" alt="" /></a></dt>
                         <dd>
-                            <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p>
+                            <p><a href="http://hauntedmap.blogspot.ca/2014/01/choice-of-blog-service-does-it-matter.html">Choice of Blog Service: Does it matter? Part I</a></p>
                         </dd>
                     </dl>
                     <dl class="dl-horizontal">
-                        <dt><a href="#"><img src="{{ STATIC_URL }}website/img/sliders/elastislide/10.jpg" alt="" /></a></dt>
+                        <dt><a href="http://hauntedmap.blogspot.ca/2014/01/choice-of-blog-service-does-it-matter_16.html"><img src="{{ STATIC_URL }}website/img/sliders/elastislide/10.jpg" alt="" /></a></dt>
                         <dd>
-                            <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p>
+                            <p><a href="http://hauntedmap.blogspot.ca/2014/01/choice-of-blog-service-does-it-matter_16.html">Choice of Blog Service: Does it matter? Part II </a></p>
                         </dd>
                     </dl>
-                    <dl class="dl-horizontal">
+                    {% comment %}                    <dl class="dl-horizontal">
                         <dt><a href="#"><img src="{{ STATIC_URL }}website/img/sliders/elastislide/11.jpg" alt="" /></a></dt>
                         <dd>
                             <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p>
                         </dd>
-                    </dl>
+                    </dl>{% endcomment %}
                 </div>
             </div><!--/col-md-4-->
 
@@ -233,23 +236,23 @@
                 <!-- Monthly Newsletter -->
                 <div class="headline"><h2>Contact Us</h2></div>
                 <address class="md-margin-bottom-40">
-                    25, Lorem Lis Street, Orange <br />
+                    {% comment %}                    25, Lorem Lis Street, Orange <br />
                     California, US <br />
                     Phone: 800 123 3456 <br />
-                    Fax: 800 123 3456 <br />
-                    Email: <a href="mailto:info@anybiz.com" class="">info@anybiz.com</a>
+                    Fax: 800 123 3456 <br />{% endcomment %}
+                    Email: <a href="mailto:info@hauntedmap.com" class="">info@hauntedmap.com</a>
                 </address>
 
                 <!-- Stay Connected -->
                 <div class="headline"><h2>Stay Connected</h2></div>
                 <ul class="social-icons">
-                    <li><a href="#" data-original-title="Feed" class="social_rss"></a></li>
-                    <li><a href="#" data-original-title="Facebook" class="social_facebook"></a></li>
-                    <li><a href="#" data-original-title="Twitter" class="social_twitter"></a></li>
-                    <li><a href="#" data-original-title="Goole Plus" class="social_googleplus"></a></li>
+                    {% comment %}                    <li><a href="#" data-original-title="Feed" class="social_rss"></a></li>
+                    <li><a href="#" data-original-title="Facebook" class="social_facebook"></a></li>{% endcomment %}
+                    <li><a href="https://twitter.com/Haunted_Map" data-original-title="Twitter" class="social_twitter"></a></li>
+                    {% comment %}                    <li><a href="#" data-original-title="Goole Plus" class="social_googleplus"></a></li>
                     <li><a href="#" data-original-title="Pinterest" class="social_pintrest"></a></li>
                     <li><a href="#" data-original-title="Linkedin" class="social_linkedin"></a></li>
-                    <li><a href="#" data-original-title="Vimeo" class="social_vimeo"></a></li>
+                    <li><a href="#" data-original-title="Vimeo" class="social_vimeo"></a></li>{% endcomment %}
                 </ul>
             </div><!--/col-md-4-->
         </div><!--/row-->

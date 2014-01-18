@@ -59,6 +59,22 @@ class TvShow(models.Model):
     imdb_id = models.CharField(max_length=255, blank=True)
     zap2it_id = models.CharField(max_length=255, blank=True)
 
+class Newsletter(models.Model):
+    def __unicode__(self):
+        return self.email
+    email = models.EmailField()
+    status = models.BinaryField(default=bin(1))
+
+
+class Comment(models.Model):
+    def __unicode__(self):
+        return self.email
+    comment = models.TextField()
+    status = models.BinaryField(default=bin(0), blank=True, null=True)
+    user_name = models.CharField(default="", max_length=255, blank=True, null=True)
+    email = models.EmailField(default="", blank=True, null=True)
+    haunted_location = models.ForeignKey(HauntedLocation)
+
 # Auto-generated `LayerMapping` dictionary for  --srid=4326 model
 HauntedLocation_mapping = {
     'name' : 'name',
