@@ -233,6 +233,19 @@ blockquote:hover {
 	text-decoration: underline;
 }
 
+/* Header */
+
+
+.header {
+	color: #dadada;
+	padding: 20px 0 30px;
+	background: #585f69;
+}
+
+.header a {
+	color: #72c02c;
+}
+
 /*Footer*/
 .footer {
 	color: #dadada;

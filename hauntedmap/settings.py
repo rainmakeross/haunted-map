@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'website',
     'external_data',
     'django_facebook',
+    'django_jenkins'
     #'gunicorn'
 )
 

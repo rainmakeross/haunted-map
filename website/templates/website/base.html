@@ -3,6 +3,8 @@
 
     <title>HauntedMap | Welcome...</title>
 
+
+
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +17,8 @@
         <link rel="stylesheet" href="{{ STATIC_URL }}website/css/style.css">
         <link rel="stylesheet" href="{{ STATIC_URL }}website/css/headers/header1.css">
         <link rel="stylesheet" href="{{ STATIC_URL }}website/css/responsive.css">
-        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="shortcut icon" href="{{ STATIC_URL }}website/img/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="{{ STATIC_URL }}website/img/favicon.ico" type="image/x-icon">
         <!-- CSS Implementing Plugins -->
         <link rel="stylesheet" href="{{ STATIC_URL }}website/plugins/font-awesome/css/font-awesome.css">
         <link rel="stylesheet" href="{{ STATIC_URL }}website/plugins/flexslider/flexslider.css" type="text/css" media="screen">
@@ -44,7 +47,7 @@
                         </button>
                         <a class="navbar-brand" href="/website/">
                             {% load staticfiles %}
-                            <img id="logo-header" src="{{ STATIC_URL }}/website/icons/ghost/ghost-icon.png" alt="Logo" style="height:50px; width:50px">
+                            <img id="logo-header" src="{{ STATIC_URL }}website/logo/main_logo.png" alt="Logo" style="height:100px; width:100px">
                         </a>
                     </div>
 
@@ -73,7 +76,7 @@
                                     <i class="icon-angle-down"></i>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li class="active"><a href="about_us">About Us</a></li>
+{#                                    <li class="active"><a href="about_us">About Us</a></li>#}
                                     <li class="active"><a href="episode_guide">Episode Guide</a></li>
                                 </ul>
                             </li>
@@ -276,7 +279,7 @@
             <div class="col-md-6">
                 <a href="/website/">
                     {% load staticfiles %}
-                    <img id="logo-footer" src="{{ STATIC_URL }}website/icons/ghost/Ghost-icon.png" class="pull-right" alt="" />
+                    <img id="logo-footer" src="{{ STATIC_URL }}website/logo/main_logo.png" style="height:100px; width:100px" class="pull-right" alt=""  />
                 </a>
             </div>
         </div><!--/row-->

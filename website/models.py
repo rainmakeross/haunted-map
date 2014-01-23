@@ -68,7 +68,7 @@ class Newsletter(models.Model):
 
 class Comment(models.Model):
     def __unicode__(self):
-        return self.email
+        return self.haunted_location
     comment = models.TextField()
     status = models.BinaryField(default=bin(0), blank=True, null=True)
     user_name = models.CharField(default="", max_length=255, blank=True, null=True)
