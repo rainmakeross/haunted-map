@@ -47,6 +47,12 @@ INSTALLED_APPS = (
     #'gunicorn'
 )
 
+#Django Jenkins to run test on our apps only
+PROJECT_APPS =(
+       'website',
+    'external_data',
+)
+
 MIDDLEWARE_CLASSES = (
     # 'django.middleware.cache.UpdateCacheMiddleware',    # This middleware must be first on the list
     # 'django.middleware.common.CommonMiddleware',
