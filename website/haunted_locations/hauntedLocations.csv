@@ -1,0 +1,374 @@
+id,name,country,state,latitude,longitude,category_id
+1,Dimond Center,United States of America,Alaska,61.143116,-149.86815,6
+2,Bird Cage Theatre,United States of America,Arizona,31.711944,-110.065278,6
+3,Adams Grove Presbyterian Church,United States of America,Alabama,32.271944,-87.030556,11
+4,Auburn University Chapel,United States of America,Alabama,32.604722,-85.480833,11
+5,Dr. John R. Drish House,United States of America,Alabama,33.19755,-87.56185,6
+6,Gaineswood,United States of America,Alabama,32.508192,-87.833683,6
+7,The Harrison Cemetery,United States of America,Alabama,31.8109887,-88.3058507,2
+8,Kenworthy Hall,United States of America,Alabama,32.635139,-87.352222,6
+9,Edmund King House,United States of America,Alabama,33.1061108441,-86.864224171,6
+10,Oakleigh,United States of America,Alabama,30.680872,-88.060494,6
+11,Pickens County Courthouse,United States of America,Alabama,33.261769,-88.095086,6
+12,Richards DAR House,United States of America,Alabama,30.695833,-88.045556,6
+13,Rocky Hill Castle,United States of America,Alabama,34.68842,-87.33328,6
+14,Sloss Furnaces,United States of America,Alabama,33.520656,-86.791306,6
+15,Sturdivant Hall,United States of America,Alabama,32.413056,-87.028889,6
+16,Sweetwater Mansion,United States of America,Alabama,34.82452,-87.64287,6
+17,Boot Hill Graveyard,United States of America,Arizona,31.719889,-110.070444,2
+18,Copper Queen Hotel,United States of America,Arizona,31.4424,-109.9143,7
+19,Gadsden Hotel,United States of America,Arizona,31.345278,-109.554167,7
+20,Richard Lee Williams High School,United States of America,Arizona,35.192398,-114.058423,6
+21,Hotel Monte Vista,United States of America,Arizona,35.1982,-111.6473,7
+22,Oliver House Bed and Breakfast,United States of America,Arizona,31.442395,-109.915715,7
+23,Vulture Mine,United States of America,Arizona,33.878889,-112.795,12
+24,Crescent Hotel,United States of America,Arkansas,36.408389,-93.73729,7
+25,Fort Chaffee,United States of America,Arkansas,35.27,-94.202,9
+26,King Opera House,United States of America,Arkansas,35.436547,-94.341359,6
+27,Rialto Theatre,United States of America,Arkansas,33.211445,-92.663606,6
+28,USS Hornet (CV-12),United States of America,California,37.772717,-122.302781,9
+29,Mission San José,United States of America,California,37.532778,-121.919444,11
+30,The Dorrington Hotel,United States of America,California,38.300752,-120.277046,7
+31,Preston School of Industry,United States of America,California,38.361111,-120.935833,6
+32,National Hotel,United States of America,California,38.347984,-120.773353,7
+33,Hotel Léger,United States of America,California,38.301067,-120.705783,7
+34,Black Diamond Mines,United States of America,California,37.950278,-121.856944,12
+35,Battery Point Light,United States of America,California,41.744,-124.2032,8
+36,Cary House,United States of America,California,38.727968,-120.802386,6
+37,Wolfe Manor,United States of America,California,36.80321,-119.700977,6
+38,Del Rey Cemetery,United States of America,California,36.6614404003,-119.6108811228,2
+39,Amargosa Opera House and Hotel,United States of America,California,36.298763,-116.412416,7
+40,Kern County Kids Shelter,United States of America,California,35.3774959652,-119.0121484872,6
+41,Witch of Cobb Mountain,United States of America,California,34.2040309145,-118.1306044005,12
+42,Barney's Beaner,United States of America,California,34.0907499,-118.3746149,6
+43,The Comedy Store,United States of America,California,34.0951,-118.37384,6
+44,Fort MacArthur,United States of America,California,33.711964,-118.296181,9
+45,Pico House,United States of America,California,34.056564,-118.239464,6
+46,Holywood,United States of America,California,34.1,-118.333333,12
+47,Hollywood Forever Cemetery,United States of America,California,34.088611,-118.318889,2
+48,Chateau Marmont,United States of America,California,34.098056,-118.368611,6
+49,Lincoln Heights Jail,United States of America,California,34.077472,-118.224875,6
+50,Linda Vista Community Hospital,United States of America,California,34.038333,-118.217222,6
+51,Universal Studios,United States of America,California,34.139769,-118.350578,6
+52,RMS Queen Mary,United States of America,California,33.753056,-118.189722,9
+53,Banning Inn,United States of America,California,33.441062,-118.499669,7
+54,Hollywood Roosevelt Hotel,United States of America,California,34.101111,-118.341667,7
+55,Woodland Hills Comfort Inn,United States of America,California,34.170519,-118.572975,7
+56,Vogue Theatre,United States of America,California,34.1016993,-118.3356934,6
+57,Chowchilla Library,United States of America,California,37.1229012,-120.261871,6
+58,Easkoot House,United States of America,California,37.8998523,-122.643321,6
+59,Hotel Jeffrey,United States of America,California,37.711085,-120.197164,7
+60,Bodie,United States of America,California,38.212222,-119.012222,4
+61,Point Sur Lightstation,United States of America,California,36.305,-121.898611,8
+62,Tor House and Hawk Tower,United States of America,California,36.542,-121.9323,6
+63,Napa Cinedrome,United States of America,California,38.3013436,-122.2848576,6
+64,Del Oro Theatre,United States of America,California,39.2173483,-121.0631314,6
+65,Holbrooke Hotel,United States of America,California,39.218883,-121.063333,7
+66,National Exchange Hotel,United States of America,California,39.2625,-121.016944,7
+67,Stonehouse Brewery,United States of America,California,39.2615745,-121.0161914,6
+68,El Adobe de Capistrano,United States of America,California,33.49975,-117.66282,6
+69,Mission San Juan Capistrano,United States of America,California,33.502778,-117.662778,11
+70,Disneyland,United States of America,California,33.809,-117.919,12
+71,Black Star Canyon,United States of America,California,33.766091,-117.679152,12
+72,Yost Theater and Ritz Hotel,United States of America,California,37.711085,-120.197164,7
+73,Mission Inn,United States of America,California,33.983333,-117.372778,6
+74,Old Sacramento,United States of America,California,38.582778,-121.503333,6
+75,Calico,United States of America,California,34.948889,-116.864167,4
+76,Morey Mansion,United States of America,California,34.038816,-117.208012,6
+77,Hotel del Coronado,United States of America,California,32.6809,-117.1784,7
+78,Whaley House,United States of America,California,32.752828,-117.194486,6
+79,Casa de Estudillo,United States of America,California,32.753978,-117.195781,6
+80,Area 41,United States of America,California,33.333333,-117.416667,9
+81,Alcatraz Island,United States of America,California,37.82667,-122.423333,12
+82,Stow Lake,United States of America,California,37.770627,-122.477078,10
+83,Banta Inn,United States of America,California,37.753789,-121.372538,7
+84,Mission San Miguel Arcángel,United States of America,California,35.744722,-120.698056,11
+85,Moss Beach Distillery,United States of America,California,37.5178,-122.5128,6
+86,La Purisima Mission,United States of America,California,34.67047,-120.420617,11
+87,Winchester Mystery House,United States of America,California,37.318361,-121.950761,6
+88,Brookdale Lodge,United States of America,California,37.1070821629,-122.1089158952,7
+89,Union Hotel,United States of America,California,38.0476122,-122.1603435,7
+90,Olivas Adobe,United States of America,California,34.244444,-119.241111,6
+91,Elizabeth Bard Memorial Hospital,United States of America,California,34.282222,-119.288333,6
+92,Nordhoff Cemetery,United States of America,California,34.44585,-119.260589,2
+93,Glen Tavern Inn,United States of America,California,34.355,-119.061111,7
+94,Mary Aaron Museum,United States of America,California,39.142752,-121.589584,6
+95,Silver Dollar Saloon,United States of America,California,39.135698,-121.588124,6
+96,Hotel Jerome,United States of America,Colorado,39.190833,-106.819167,7
+97,Osgood Castle,United States of America,Colorado,39.169167,-107.241389,6
+98,Pioneer Park,United States of America,Colorado,39.193056,-106.826667,6
+99,Stanley Hotel,United States of America,Colorado,40.383333,-105.518333,7
+100,Peabody Mansion,United States of America,Colorado,39.734391,-104.98321,6
+101,Colorado Grande Hotel & Casino,United States of America,Colorado,38.746619,-105.178379,7
+102,Bara-Hack,United States of America,Connecticut,41.88,-72.011,4
+103,Dudleytown,United States of America,Connecticut,41.8078,-73.3523,4
+104,Hartford Conservatory,United States of America,Connecticut,41.7702,-72.6923,6
+105,New London Ledge Lighthouse,United States of America,Connecticut,41.306121,-72.077286,8
+106,Norwich State Hospital,United States of America,Connecticut,41.489167,-72.073333,6
+107,Remington Arms,United States of America,Connecticut,41.186852,-73.17502,6
+108,Union Cemetery,United States of America,Connecticut,41.2727,-73.297,2
+109,Addy Sea Inn,United States of America,Delaware,38.543576,-75.057303,7
+110,Bay Oaks,United States of America,Delaware,38.7745565,-75.1393498,10
+111,Dead President's Tavern,United States of America,Delaware,39.7512557,-75.5714352,6
+112,Delores J Baylor Women’s Correctional Institution,United States of America,Delaware,39.692189,-75.57538,6
+113,Fort Delaware,United States of America,Delaware,39.59,-75.571944,9
+114,Castillo de San Marcos,United States of America,Florida,29.897778,-81.311389,9
+115,Riddle House,United States of America,Florida,26.705833,-80.226667,6
+116,Saint Augustine Lighthouse,United States of America,Florida,29.885556,-81.288611,8
+117,Coral Gables Biltmore Hotel,United States of America,Florida,25.741111,-80.279167,7
+118,Ebos Landing – Igbo Landing,United States of America,Georgia,31.187222,-81.387222,12
+119,Hampton Lillibridge House,United States of America,Georgia,32.078279,-81.086096,6
+120,Moon River Brewing Company,United States of America,Georgia,32.081111,-81.091111,6
+121,Springer Opera House,United States of America,Georgia,32.464722,-84.990833,6
+122,Iolani Palace,United States of America,Hawaii,21.306622,-157.858958,6
+123,Old Idaho State Penitentiary,United States of America,Idaho,43.602778,-116.1625,6
+124,Ashmore Estates,United States of America,Illinois,39.529,-88.0498,6
+125,Bachelor's Grove Cemetery,United States of America,Illinois,41.630833,-87.770833,2
+126,Crenshaw House,United States of America,Illinois,37.730278,-88.2925,6
+127,Excalibur Nightclub,United States of America,Illinois,41.893319,-87.629724,6
+128,Manteno State Hospital,United States of America,Illinois,41.232533,-87.804764,6
+129,McPike Mansion,United States of America,Illinois,38.905833,-90.183333,6
+130,Pemberton Hall,United States of America,Illinois,39.483611,-88.176389,6
+131,Peoria State Hospital,United States of America,Illinois,40.638611,-89.661667,6
+132,George Stickney House,United States of America,Illinois,42.316111,-88.366944,6
+133,Story Inn,United States of America,Indiana,39.092956,-86.206453,7
+134,Jordan House,United States of America,Iowa,41.56,-93.734722,6
+135,Brown Grand Theatre,United States of America,Kansas,39.571389,-97.663611,6
+136,Perryville Battlefield,United States of America,Kentucky,37.675278,-84.969722,12
+137,Bobby Mackey's Music World,United States of America,Kentucky,39.074357,-84.494008,6
+138,Old Louisville,United States of America,Kentucky,38.22995,-85.76297,12
+139,Waverly Hills Sanatorium,United States of America,Kentucky,38.130147,-85.841728,6
+140,Rocky Point Manor,United States of America,Kentucky,37.762298,-84.843285,6
+141,Magnolia Plantation,United States of America,Lousiana,31.549722,-92.940556,6
+142,Myrtles Plantation,United States of America,Lousiana,30.803056,-91.3875,6
+143,Mystere Mansion,United States of America,Lousiana,29.979182,-90.108228,6
+144,Fort Knox,United States of America,Maine,44.566194,-68.802417,9
+145,Auburn House,United States of America,Maryland,39.386111,-76.613889,6
+146,Chestnut Lodge,United States of America,Maryland,39.084806,-77.162639,6
+147,Point Lookout Light,United States of America,Maryland,38.0387,-76.3221,8
+148,Boston Athenæum,United States of America,Massachusetts,42.358044,-71.062158,6
+149,Houghton Mansion,United States of America,Massachusetts,42.696111,-73.106111,6
+150,Joshua Ward House,United States of America,Massachusetts,42.520278,-70.896667,6
+151,Witch House,United States of America,Massachusetts,42.521603,-70.898896,6
+152,Lizzie Borden House,United States of America,Massachusetts,41.698882,-71.156137,7
+153,Longfellow's Wayside Inn,United States of America,Massachusetts,42.357468,-71.469223,7
+154,USS Salem (CA-139),United States of America,Massachusetts,42.244167,-70.97,9
+155,Sylvester K. Pierce Mansion,United States of America,Massachusetts,42.557305,-71.980192,6
+156,Big Bay Point Light,United States of America,Michigan,46.840278,-87.681944,8
+157,Mission Point Resort,United States of America,Michigan,45.850986,-84.606365,12
+158,Historic Fort Wayne,United States of America,Michigan,42.296076,-83.099733,12
+159,Winona State University,United States of America,Minnesota,44.0474,-91.6439,12
+160,Palmer House Hotel,United States of America,Minnesota,41.880344,-87.62691,7
+161,Keesler Air Force Base,United States of America,Mississippi,30.411389,-88.923611,9
+162,King's Tavern,United States of America,Mississippi,31.560278,-91.399222,6
+163,Rowan Oak,United States of America,Mississippi,34.3598,-89.5247,6
+164,Vicksburg National Military Park,United States of America,Mississippi,32.343889,-90.851389,9
+165,Kemper Arena,United States of America,Missouri,39.091944,-94.605833,12
+166,Pythian Castle,United States of America,Missouri,37.2214,-93.2686,6
+167,Missouri State Penitentiary,United States of America,Missouri,38.573409,-92.160584,12
+168,Union Station,United States of America,Missouri,39.0848,-94.5855,6
+169,Bannack,United States of America,Montana,45.161111,-112.995556,4
+170,Carroll College,United States of America,Montana,46.600867,-112.039153,12
+171,Garnet,United States of America,Montana,46.825278,-113.338889,4
+172,Little Bighorn Battlefield,United States of America,Montana,45.570278,-107.4275,12
+173,Montana State Prison,United States of America,Montana,46.382778,-112.801111,12
+174,Virginia City,United States of America,Montana,45.294167,-111.941111,4
+175,Hummel Park,United States of America,Nebraska,41.371667,-95.957222,10
+176,Goldfield Hotel,United States of America,Nevada,37.708611,-117.234167,7
+177,Mustang Ranch,United States of America,Nevada,39.518764,-119.615247,6
+178,Bonnie Springs Ranch,United States of America,Nevada,36.059405,-115.454048,6
+179,Mizpah Hotel,United States of America,Nevada,38.068056,-117.23,7
+180,Nevada Governor's Mansion,United States of America,Nevada,39.1675,-119.773056,6
+181,Old Washoe Club,United States of America,Nevada,39.3093,-119.6503,6
+182,Mount Washington Hotel,United States of America,New Hampshire,44.258056,-71.440278,7
+183,Burlington County Prison,United States of America,New Jersey,39.9965,-74.789731,12
+184,Essex County Hospital Center,United States of America,New Jersey,40.851889,-74.243758,6
+185,Penitentiary of New Mexico,United States of America,New Mexico,35.561944,-106.060278,6
+186,St. James Hotel,United States of America,New Mexico,36.505,-104.920556,6
+187,112 (now 108) Ocean Avenue,United States of America,New York,40.666539,-73.414759,6
+188,Big Moose Lake,United States of America,New York,43.816944,-74.854722,10
+189,Cherry Hill,United States of America,New York,42.634722,-73.763889,6
+190,Church of St. Barnabas,United States of America,New York,41.039722,-73.865278,11
+191,Farnam Mansion,United States of America,New York,43.091375,-75.649865,6
+192,New York State Capitol,United States of America,New York,42.652553,-73.757323,6
+193,Smith-Ely Mansion,United States of America,New York,43.085278,-76.873611,6
+194,Durand Eastman Park,United States of America,New York,43.23101,-77.56854,10
+195,Sailors' Snug Harbor,United States of America,New York,40.6425,-74.102778,12
+196,Attmore-Oliver House,United States of America,North Carolina,35.108333,-77.041944,6
+197,Brown Mountain,United States of America,North Carolina,35.915833,-81.745833,10
+198,Devil's Tramping Ground,United States of America,North Carolina,35.584783,-79.487017,10
+199,Sanford House,United States of America,North Carolina,35.048056,-78.878333,12
+200,Liberty Memorial Building,United States of America,North Dakota,46.819167,-100.781389,6
+201,Cincinnati Music Hall,United States of America,Ohio,39.109444,-84.518889,6
+202,Ohio State Reformatory,United States of America,Ohio,40.785278,-82.505,6
+203,Ohio University,United States of America,Ohio,39.3275,-82.1,10
+204,Prospect Place,United States of America,Ohio,40.134722,-82.011667,6
+205,Spring House Gazebo,United States of America,Ohio,39.11425,-84.49351,6
+206,Dead Women Crossing,United States of America,Oklahoma,35.567778,-98.650833,4
+207,Bagdad Theatre,United States of America,Portland,45.511889,-122.625417,6
+208,Hot Lake Hotel,United States of America,Portland,45.243333,-117.956667,7
+209,Multnomah County Poor Farm,United States of America,Portland,45.538611,-122.408056,6
+210,Pittock Mansion,United States of America,Portland,45.525,-122.716389,6
+211,Shanghai Tunnels,United States of America,Portland,45.524,-122.673,10
+212,Devils Den,United States of America,Pennsylvania,39.791506,-77.242386,12
+213,Gettysburg Battlefield,United States of America,Pennsylvania,39.81245,-77.235717,12
+214,General Wayne Inn,United States of America,Pennsylvania,40.009167,-75.253611,6
+215,Belcourt,United States of America,Rhode Island,41.4575,-71.30627,6
+216,Old Charleston Jail,United States of America,South Carolina,32.778333,-79.936944,6
+217,Mount Marty College,United States of America,South Dakota,42.87502,-97.41023,10
+218,Bell Witch Cave,United States of America,Tennessee,36.591389,-87.055556,12
+219,Orpheum Theatre,United States of America,Tennessee,35.14,-90.055278,6
+220,Tennessee State Prison,United States of America,Tennessee,36.1772,-86.8654,6
+221,Hales Bar Dam,United States of America,Tennessee,35.046667,-85.539444,10
+222,Alamo,United States of America,Texas,29.425833,-98.486111,12
+223,Presidio La Bahia,United States of America,Texas,28.646667,-97.381667,9
+224,Grove,United States of America,Texas,32.758056,-94.338333,6
+225,Littlefield House,United States of America,Texas,30.288056,-97.740556,6
+226,Baker Hotel,United States of America,Texas,32.809444,-98.111389,7
+227,American Fork Canyon,United States of America,Utah,40.433333,-111.733333,10
+228,Asylum 49,United States of America,Utah,40.526641,-112.29447,6
+229,Bennington College,United States of America,Vermont,42.924817,-73.23673,10
+230,Aquia Church,United States of America,Virginia,38.4646,-77.40305,11
+231,Ball's Bluff,United States of America,Virginia,39.131389,-77.529167,12
+232,Bremo Historic District,United States of America,Virginia,37.72542,-78.32973,12
+233,Ferry Plantation House,United States of America,Virginia,36.863889,-76.118333,6
+234,Manassas National Battlefield Park,United States of America,Virginia,38.812778,-77.521667,12
+235,Monticello,United States of America,Virginia,38.010281,-78.4523,6
+236,Rosewell Plantation,United States of America,Virginia,37.327778,-76.576389,6
+237,Butterworth Building,United States of America,Washington,47.610509,-122.342268,6
+238,Montgomery House Bed and Breakfast,United States of America,Washington,46.006944,-122.843889,6
+239,White House,United States of America,District of Columbia,38.8977,-77.0365,6
+240,Blennerhassett Hotel,United States of America,West Virginia,39.264722,-81.561389,7
+241,Harpers Ferry,United States of America,West Virginia,39.325398,-77.743599,12
+242,Trans-Allegheny Lunatic Asylum,United States of America,West Virginia,39.038611,-80.471389,6
+243,West Virginia State Penitentiary,United States of America,West Virginia,39.91649,-80.742368,6
+244,Summerwind,United States of America,Wisconsin,46.1985787088,-89.4216389805,6
+245,Wyoming Frontier Prison,United States of America,Wyoming,41.792361,-107.242063,6
+246,Banff Springs Hotel,Canada,Alberta,51.164444,-115.561944,6
+247,Charles Camsell Hospital,Canada,Alberta,53.563686,-113.542861,6
+248,Concordia University College of Alberta,Canada,Alberta,53.559,-113.444,6
+249,Deanne House,Canada,Alberta,51.043917,-114.044212,6
+250,Fort Kent,Canada,Alberta,54.310833,-110.604444,6
+251,Fort Saskatchewan,Canada,Alberta,53.712778,-113.213333,12
+252,Galt Museum & Archives,Canada,Alberta,49.69558,-112.84508,6
+253,Fairmont Hotel Macdonald,Canada,Alberta,53.540278,-113.489167,6
+254,Jasper Park Lodge,Canada,Alberta,52.886111,-118.056944,6
+255,Lac La Biche Mission,Canada,Alberta,54.770683,-112.032556,11
+256,Lake Minnewanka,Canada,Alberta,51.258056,-115.373056,10
+257,Rouge Restaurant,Canada,Alberta,51.042098,-114.033736,6
+258,Ukrainian Cultural Heritage Village,Canada,Alberta,53.568192,-112.794431,12
+259,Walterdale Playhouse,Canada,Alberta,53.519167,-113.496111,6
+260,Central Park,Canada ,British Columbia,49.227071,-123.018208,10
+261,Craigdarroch Castle,Canada ,British Columbia,48.422585,-123.343704,6
+262,The Empress Hotel,Canada ,British Columbia,48.42185,-123.36797,7
+263,Hatley Castle,Canada ,British Columbia,48.4343,-123.4724,6
+264,Hotel Rialto,Canada ,British Columbia,48.428076,-123.364569,7
+265,Hotel Vancouver,Canada ,British Columbia,49.283839,-123.120959,7
+266,James Bay Inn,Canada ,British Columbia,48.415381,-123.369362,7
+267,Morfee Lake,Canada ,British Columbia,55.338056,-123.094444,10
+268,New Westminster Secondary School,Canada ,British Columbia,49.215658,-122.929,10
+269,The Old Spaghetti Factory,Canada ,British Columbia,49.283681,-123.105376,10
+270,St. Paul's Hospital,Canada ,British Columbia,49.279954,-123.128292,7
+271,Tranquille Sanatorium,Canada ,British Columbia,50.676111,-120.340833,6
+272,Vogue Theatre,Canada ,British Columbia,49.28,-123.12,6
+273,Washington Avenue Grill,Canada ,British Columbia,49.016275,-122.785394,7
+274,Art Gallery of Southwestern Manitoba,Canada,Manitoba,49.848453,-99.947373,10
+275,Barber House,Canada,Manitoba,49.906689,-97.128143,6
+276,Burton Cummings Theatre,Canada,Manitoba,49.895833,-97.143611,6
+277,Fort Garry Hotel,Canada,Manitoba,49.887954,-97.136715,7
+278,Health Sciences Centre,Canada,Manitoba,49.903889,-97.159722,6
+279,La Barriere Park ,Canada,Manitoba,49.720094,-97.172785,10
+280,Le Musée de Saint-Boniface Museum,Canada,Manitoba,49.887778,-97.123056,6
+281,Manitoba Legislative Building,Canada,Manitoba,49.884394,-97.146918,6
+282,MTS Centre,Canada,Manitoba,49.892778,-97.143611,6
+283,Portage Place,Canada,Manitoba,49.8925,-97.1478,6
+284,Saint Boniface Cathedral,Canada,Manitoba,49.8893,-97.122,11
+285,St. Ignatius School,Canada,Manitoba,49.867,-97.1627,10
+286,St. Andrews on the Red,Canada,Manitoba,50.067305,-96.978198,11
+287,St. Norbert Monastery,Canada,Manitoba,49.766389,-97.147222,11
+288,Trinity,Canada,Newfoundland and Labrador,48.375556,-53.394722,10
+289,The Algonquin,Canada,New Brunswick,45.080278,-67.054722,7
+290,Bathurst High School,Canada,New Brunswick,47.62,-65.65,10
+291,Blackville,Canada,New Brunswick,46.733333,-65.833333,10
+292,Capitol Theatre,Canada,New Brunswick,46.08825,-64.779068,6
+293,Centracare,Canada,New Brunswick,45.2542,-66.1265,6
+294,Charlotte County Court House,Canada,New Brunswick,45.075686,-67.049239,6
+295,Nordin,Canada,New Brunswick,47.021139,-65.541083,10
+296,St. Michael's Basilica,Canada,New Brunswick,47.0261,-65.4656,11
+297,Deline,Canada,Northwest Territories,65.186667,-123.421667,10
+298,Fort Battleford,Canada,Northwest Territories,52.727222,-108.296111,9
+299,Nahanni Butte,Canada,Northwest Territories,61.033889,-123.380556,10
+300,Nahanni National Park Reserve,Canada,Northwest Territories,61.59712,-125.8522,10
+301,Acadia University,Canada,Nova Scotia,45.091125,-64.361428,10
+302,Alexander Keith's Brewery,Canada,Nova Scotia,44.6446,-63.5702,6
+303,All Saints Cathedral,Canada,Nova Scotia,44.640444,-63.579681,11
+304,Bedford Basin,Canada,Nova Scotia,44.7,-63.633333,10
+305,Citadel Hill,Canada,Nova Scotia,44.6475,-63.580278,9
+306,Fortress of Louisbourg,Canada,Nova Scotia,45.892382,-59.98621,9
+307,St. Francis Xavier University,Canada,Nova Scotia,45.616797,-61.982889,10
+308,Young Teazer,Canada,Nova Scotia,44.5,-64.216667,9
+309,Auberge Le Saint-Gabriel,Canada,Quebec,45.51,-73.55,7
+310,Cathedral of the Holy Trinity,Canada,Quebec,46.8128,-71.2066,11
+311,Château Frontenac,Canada,Quebec,46.811944,-71.205,9
+312,Fort de l'Île Sainte-Hélène,Canada,Quebec,45.5171,-73.5335,9
+313,Les Fusiliers de Sherbrooke,Canada,Quebec,45.4,-71.9,9
+314,Mount Royal Cemetery ,Canada,Quebec,45.509123,-73.598005,2
+315,Notre-Dame Basilica-Cathedral,Canada,Quebec,46.813781,-71.206103,9
+316,Notre-Dame-des-Victoires,Canada,Quebec,46.8128,-71.2027,9
+317,Plains of Abraham,Canada,Quebec,46.799722,-71.220833,9
+318,Queen Elizabeth Hotel,Canada,Quebec,45.5006,-73.5678,7
+319,Royal Victoria Hospital,Canada,Quebec,45.50826,-73.58145,6
+320,Delta Bessborough,Canada,Saskatchewan,52.126389,-106.659167,7
+321,Fort Battleford,Canada,Saskatchewan,52.727222,-108.296111,9
+322,Fort San,Canada,Saskatchewan,50.8025,-103.826944,9
+323,Government House,Canada,Saskatchewan,50.454,-104.647753,6
+324,Hotel Saskatchewan,Canada,Saskatchewan,50.446667,-104.611389,7
+325,Marr Residence,Canada,Saskatchewan,52.118619,-106.6634,6
+326,St. Louis,Canada,Saskatchewan,52.916667,-105.816667,10
+327,Souris Valley Mental Health Hospital,Canada,Saskatchewan,49.673947,-103.874358,6
+328,Caribou Hotel,Canada,Yukon,60.1675,-134.707222,7
+329,Albion Falls,Canada,Ontario,43.200472,-79.819678,10
+330,Bytown Museum,Canada,Ontario,45.425809,-75.697764,6
+331,Château Laurier,Canada,Ontario,45.425567,-75.695108,7
+332,Fairmont Royal York,Canada,Ontario,43.646133,-79.381561,7
+333,Fort George,Canada,Ontario,43.250833,-79.061111,9
+334,Fort Henry,Canada,Ontario,44.230264,-76.459681,9
+335,Fort York,Canada,Ontario,43.639028,-79.403333,9
+336,Gibraltar Point Lighthouse,Canada,Ontario,43.613667,-79.385278,2
+337,H.B. Beal Secondary School,Canada,Ontario,42.9872,-81.2347,6
+338,The Hermitage,Canada,Ontario,43.240245,-79.998946,12
+339,Kingston Penitentiary,Canada,Ontario,44.219444,-76.513611,6
+340,Mount Pleasant Cemetery,Canada,Ontario,43.695833,-79.384722,2
+341,Old Fort Erie,Canada,Ontario,42.89325,-78.923817,9
+342,Ottawa Jail Hostel,Canada,Ontario,45.424722,-75.68875,7
+343,Queen's Park,Canada,Ontario,43.664659,-79.392453,10
+344,White Otter Castle,Canada,Ontario,49.171007,-91.909359,9
+345,Deblois,Canada,Prince Edward Island,46.913,-64.107,10
+346,Lennox Island,Canada,Prince Edward Island,46.613889,-63.853889,10
+347,Bhangarh,India,Rajasthan,27.094701,76.290604,9
+348,Brij Raj Bhavan Palace,India,Rajasthan,25.206494,75.855489,12
+349,Dumas Beach,India,Gujarat,21.083796,72.709347,10
+350,Dow Hill ,India,West Bengal,26.88737,88.290513,10
+351,D`Souza Chawl,India,Maharasthra,19.038438,72.841991,10
+352,Thane,India,Maharasthra,19.206899,72.983333,10
+353,Shaniwarwada Fort,India,Maharasthra,18.519732,73.855344,12
+354,Delhi Cantonement,India,National Capital Territory of Delhi,28.596128,77.158738,10
+355,GP Block,India,Uttar Pradesh,29.004598,77.747314,6
+356,Bombay High Court,India,Maharasthra,18.931183,72.830461,12
+357,Ramoji Film City,India,Andhra Pradesh,17.255826,78.682419,10
+358,Raj Kiran Hotel,India,Maharasthra,18.74749,73.403442,7
+359,Sanjay Van,India,National Capital Territory of Delhi,28.530907,77.180149,2
+360,Changi Beach,Singapore,Singapore,1.390278,103.994444,10
+361,Ararat Lunatic Asylum,Australia,Victoria,-37.28,142.93,6
+362,Beechworth Lunatic Asylum,Australia,Victoria,-36.36918,146.69642,10
+363,Monte Christo Homestead,Australia,New South Wales,-34.871613,147.575405,6
+364,Port Arthur,Australia,Tasmania,-43.15,147.85,12
+365,Princess Theatre,Australia,Victoria,-37.810725,144.972169,6
+366,Brisbane City Hall,Australia,Queensland,-27.46885,153.023602,6
+367,St. John's Orphanage,Australia,New South Wales,-34.761641,149.710339,6
+368,Dreamworld,Australia,Queensland,-27.864,153.3158,10
+369,Amiidaji,Japan,Fukuoka,33.801231,130.875882,11
+370,Aokigahara,Japan,Yamanashi,35.476974,138.620273,10
+371,Okiku's Well,Japan,Hyogo,34.839444,134.693889,9
+372,Forbidden City,China,Beijing Municipality,39.914722,116.390556,11
+373,Tuen Mun Road,China,Hong Kong Special Adminstrative Region,22.361,114.037,9
