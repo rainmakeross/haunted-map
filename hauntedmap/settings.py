@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'hauntedmap.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-    "default": dj_database_url.config(default='postgres://localhost'),
+    "default": dj_database_url.config(default='postgres://localhost', engine='django.contrib.gis.db.backends.postgis'),
     }
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
