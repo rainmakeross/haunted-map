@@ -10,8 +10,11 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-import socket
-import django_facebook
+
+# Parse database configuration from $DATABASE_URL
+import dj_database_url
+
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -41,10 +44,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.gis',
     'website',
-    'external_data',
-    'django_facebook',
-    'django_jenkins'
-    #'gunicorn'
+    'external_data'
+
 )
 
 #Django Jenkins to run test on our apps only
@@ -74,15 +75,8 @@ WSGI_APPLICATION = 'hauntedmap.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'hauntedmap',
-        'USER': 'appUser',
-        'HOST': '54.243.238.190',
-        'PASSWORD': 'FulGrain123$'
+    "default": dj_database_url.config(default='postgres://localhost'),
     }
-}
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
@@ -121,9 +115,6 @@ STATIC_URL = '/static/'
 #     },
 #     }
 
-#Facebook App Secure Info
-FACEBOOK_APP_ID = '275585332592670'
-FACEBOOK_APP_SECRET = 'a9e1f9fc3b1f22bf42c800673e7abffb'
 
 #Template Context Processors for FaceBook Integration
 
@@ -135,19 +126,13 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 "django.core.context_processors.static",
 "django.core.context_processors.tz",
 "django.contrib.messages.context_processors.messages",
- "django_facebook.context_processors.facebook",)
+)
 
 #Authentication Backend
 AUTHENTICATION_BACKENDS = (
-    'django_facebook.auth_backends.FacebookBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 
-# Custom User Model
-AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
-
-# Custom Profile Model
-AUTH_PROFILE_MODULE = 'django_facebook.FacebookProfile'
 
 
 #Logging

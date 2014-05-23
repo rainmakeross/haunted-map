@@ -8,7 +8,7 @@ HauntedLocations_shp = os.path.abspath(os.path.join(os.path.dirname(__file__), '
 
 def run(verbose=True):
     lm = LayerMapping(HauntedLocation, HauntedLocations_shp, HauntedLocation_mapping,
-                      transform=False, encoding='iso-8859-1')
+                      transform=False, encoding='utf-8')
 
     lm.save(strict=True, verbose=verbose)
 
