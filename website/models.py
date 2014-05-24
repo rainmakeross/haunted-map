@@ -41,7 +41,7 @@ class  HauntedLocation(models.Model):
     name = models.CharField(max_length=255)
     latitude = models.FloatField()
     longitude = models.FloatField()
-    category_id = models.IntegerField()
+    category = models.CharField(max_length=255)
     country = models.CharField(max_length=255)
     state = models.CharField(max_length=255)
     geom = models.MultiPointField(srid=4326)
@@ -89,7 +89,7 @@ HauntedLocation_mapping = {
     'name' : 'name',
     'latitude' : 'latitude',
     'longitude' : 'longitude',
-    'category_id' : 'category_id',
+    'category' : 'category',
     'geom' : 'MULTIPOINT',
 }
 
