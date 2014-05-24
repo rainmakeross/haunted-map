@@ -89,7 +89,7 @@ HauntedLocation_mapping = {
     'name' : 'name',
     'latitude' : 'latitude',
     'longitude' : 'longitude',
-    'category' : 'category',
+    'category_id' : 'category_id',
     'geom' : 'MULTIPOINT',
 }
 
