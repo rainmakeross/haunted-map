@@ -41,7 +41,7 @@ class  HauntedLocation(models.Model):
     name = models.CharField(max_length=255)
     latitude = models.FloatField()
     longitude = models.FloatField()
-    category = models.ForeignKey(Category)
+    category = models.IntegerField()
     geom = models.MultiPointField(srid=4326)
     objects = models.GeoManager()
 
