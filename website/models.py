@@ -47,18 +47,18 @@ class  HauntedLocation(models.Model):
     geom = models.MultiPointField(srid=4326)
     objects = models.GeoManager()
 
+class HauntedLocationDescription(models.Model):
+    def __unicode__(self):
+        return self.html_content
+    haunted_location = models.ForeignKey(HauntedLocation, unique=True)
+    html_content = models.TextField()
+
 class HauntedLocationMetaData(models.Model):
     haunted_location = models.ForeignKey(HauntedLocation, unique=True)
     category = models.ForeignKey(Category, unique=True)
     description = models.ForeignKey(HauntedLocationDescription, unique=True)
     country = models.ForeignKey(Country, unique=True)
     state = models.ForeignKey(State, unique=True)
-
-class HauntedLocationDescription(models.Model):
-    def __unicode__(self):
-        return self.html_content
-    haunted_location = models.ForeignKey(HauntedLocation, unique=True)
-    html_content = models.TextField()
 
 class TvShow(models.Model):
     def __unicode__(self):
