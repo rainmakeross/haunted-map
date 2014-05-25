@@ -63,6 +63,7 @@ class HauntedLocationMetaData(models.Model):
 class TvShow(models.Model):
     def __unicode__(self):
         return self.name
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     tvdb_id = models.IntegerField(blank=True)
     imdb_id = models.CharField(max_length=255, blank=True)
