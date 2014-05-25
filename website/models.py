@@ -86,6 +86,7 @@ class Comment(models.Model):
 
 # Auto-generated `LayerMapping` dictionary for  --srid=4326 model
 HauntedLocation_mapping = {
+    'id':'id',
     'name' : 'name',
     'latitude' : 'latitude',
     'longitude' : 'longitude',
