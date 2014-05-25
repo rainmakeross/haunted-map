@@ -58,6 +58,7 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.cache.UpdateCacheMiddleware',    # This middleware must be first on the list
     # 'django.middleware.common.CommonMiddleware',
     # 'django.middleware.cache.FetchFromCacheMiddleware',
+    'django.middleware.gzip.GZipMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
