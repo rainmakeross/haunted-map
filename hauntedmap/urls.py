@@ -7,7 +7,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
 
-    url(r'^/', include('website.urls')),
+    url(r'^$', include('website.urls')),
     url(r'^external_data/', include('external_data.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^facebook/', include('django_facebook.urls')),
