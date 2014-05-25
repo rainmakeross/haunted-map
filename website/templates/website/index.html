@@ -1,6 +1,7 @@
 
 {% extends "website/base.html" %}
 {% block search_bar %}
+{% load url from future %}
     <div id="search" class="container">
         <div class="searchForm">
             <form id="LocationSearchForm" action="{% url 'HauntedLocationSearch' %}" method="get">
