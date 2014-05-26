@@ -45,7 +45,7 @@ class JSONResponseMixin(object):
         return json.dumps(context)
 
 
-#@cache_page(60 * 1)
+@cache_page(60 * 1)
 class Index(View):
     template_name = 'website/index.html'
     def get(self,request):
@@ -102,7 +102,7 @@ class HauntedLocationSearch(ListView):
 
 
 
-#@cache_page(60 * 1)
+@cache_page(60 * 1)
 class HauntedLocationDetail(DetailView):
     model = HauntedLocation
     context_object_name = 'haunted_location'
@@ -136,7 +136,7 @@ class HauntedLocationDetail(DetailView):
 class TestView(TemplateView):
     template_name = 'website/test.html'
 
-
+@cache_page(60 * 1)
 class HauntedEpisodeGuide(ListView):
     model = TvShow
     template_name = 'website/episode_guide.html'
