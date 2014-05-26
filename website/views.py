@@ -4,20 +4,15 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic.base import View
 from django.views.generic import ListView, DetailView, TemplateView, CreateView
 from django.template.defaultfilters import slugify, register
-from django.utils.decorators import method_decorator
-from forms import NewsletterForm
-from django.views.generic.edit import ProcessFormView
-from open_facebook import OpenFacebook
+
 
 import json
 
 
-from django.http import HttpResponse, Http404, HttpRequest
-from django.views.decorators.cache import cache_page
+from django.http import HttpResponse, Http404
 
-from django.template import RequestContext, loader
 
-from models import HauntedLocation, HauntedLocationDescription, TvShow, Newsletter
+from models import HauntedLocation, HauntedLocationDescription, TvShow
 
 
 
@@ -45,7 +40,6 @@ class JSONResponseMixin(object):
         return json.dumps(context)
 
 
-@cache_page(60 * 1)
 class Index(View):
     template_name = 'website/index.html'
     def get(self,request):
@@ -102,7 +96,6 @@ class HauntedLocationSearch(ListView):
 
 
 
-@cache_page(60 * 1)
 class HauntedLocationDetail(DetailView):
     model = HauntedLocation
     context_object_name = 'haunted_location'
@@ -136,7 +129,6 @@ class HauntedLocationDetail(DetailView):
 class TestView(TemplateView):
     template_name = 'website/test.html'
 
-@cache_page(60 * 1)
 class HauntedEpisodeGuide(ListView):
     model = TvShow
     template_name = 'website/episode_guide.html'

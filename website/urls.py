@@ -6,6 +6,7 @@ __author__ = 'derya'
 from django.conf.urls import patterns, url
 from django.template.defaultfilters import register
 from django.views.decorators.http import require_http_methods, require_POST, require_GET
+from django.views.decorators.cache import cache_page
 
 from views import Index, HauntedLocationSearch, HauntedLocationDetail, AboutUs, HowItWorks, TestView, HauntedEpisodeGuide
 from models import Newsletter, Comment
@@ -13,7 +14,7 @@ from models import Newsletter, Comment
 urlpatterns = patterns('',
 
 
-    url(r'^$', Index.as_view(), name="HauntedIndex"),
+    url(r'^$', cache_page(60 * 1)(Index.as_view()), name="HauntedIndex"),
     url(r'^detail/(?P<slug>[-\w\d]+),(?P<pk>\d+)$', HauntedLocationDetail.as_view(), name='HauntedLocationDetail'),
     url(r'^about_us$',AboutUs.as_view(), name='AboutUs'),
     url(r'^how_it_works$',HowItWorks.as_view(), name='HowItWorks'),
