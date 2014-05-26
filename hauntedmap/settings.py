@@ -10,6 +10,8 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import sys
+import urlparse
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
@@ -71,9 +73,7 @@ ROOT_URLCONF = 'hauntedmap.urls'
 
 WSGI_APPLICATION = 'hauntedmap.wsgi.application'
 
-import os
-import sys
-import urlparse
+
 
 # Register database schemes in URLs.
 urlparse.uses_netloc.append('mysql')
@@ -130,15 +130,16 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# MEMCACHED HEROKU
+# REDIS CLOUD HEROKU
+redis_url = urlparse.urlparse(os.environ.get('REDISCLOUD_URL'))
 CACHES = {
     'default': {
-        'BACKEND': 'django_bmemcached.memcached.BMemcached',
-        'LOCATION': os.environ.get('MEMCACHEDCLOUD_SERVERS').split(','),
+        'BACKEND': 'redis_cache.RedisCache',
+        'LOCATION': '%s:%s' % (redis_url.hostname, redis_url.port),
         'OPTIONS': {
-            'username': os.environ.get('MEMCACHEDCLOUD_USERNAME'),
-            'password': os.environ.get('MEMCACHEDCLOUD_PASSWORD')
-        }
+            'PASSWORD': redis_url.password,
+            'DB': 0,
+            }
     }
 }
 
