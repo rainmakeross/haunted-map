@@ -55,9 +55,9 @@ PROJECT_APPS =(
 )
 
 MIDDLEWARE_CLASSES = (
-    # 'django.middleware.cache.UpdateCacheMiddleware',    # This middleware must be first on the list
-    # 'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.cache.FetchFromCacheMiddleware',
+    'django.middleware.cache.UpdateCacheMiddleware',    # This middleware must be first on the list
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
     'django.middleware.gzip.GZipMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -130,25 +130,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-#
-# #Redis Session Cache
-# SESSION_ENGINE = 'redis_sessions.session'
-# SESSION_REDIS_DB = 0
-# SESSION_REDIS_UNIX_DOMAIN_SOCKET_PATH = '/var/run/redis/redis.sock'
-# SESSION_REDIS_PASSWORD = 'ci[BRr=rCP4_;F)'
-#
-# #BackEnd Cache
-# CACHES = {
-#     'default': {
-#         'BACKEND': 'redis_cache.RedisCache',
-#         'LOCATION': '/var/run/redis/redis.sock',
-#         'OPTIONS': {
-#               'DB': 0,
-#             'PASSWORD': 'ci[BRr=rCP4_;F)',
-#             }
-#     },
-#     }
-
+# MEMCACHED HEROKU
+CACHES = {
+    'default': {
+        'BACKEND': 'django_bmemcached.memcached.BMemcached',
+        'LOCATION': os.environ.get('MEMCACHEDCLOUD_SERVERS').split(','),
+        'OPTIONS': {
+            'username': os.environ.get('MEMCACHEDCLOUD_USERNAME'),
+            'password': os.environ.get('MEMCACHEDCLOUD_PASSWORD')
+        }
+    }
+}
 
 #Template Context Processors for FaceBook Integration
 
